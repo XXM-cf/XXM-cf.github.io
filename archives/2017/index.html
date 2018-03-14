@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Ajax语法 | Cf-Blog</title>
+  <title>Archives: 2017 | Cf-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）">
-<meta name="keywords" content="ajax">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Ajax语法">
-<meta property="og:url" content="http://yoursite.com/2018/03/14/Ajax相关知识/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Cf-Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
 <meta property="og:site_name" content="Cf-Blog">
-<meta property="og:description" content="AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.runoob.com/images/ajax.gif">
-<meta property="og:updated_time" content="2017-09-23T02:54:05.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ajax语法">
-<meta name="twitter:description" content="AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）">
-<meta name="twitter:image" content="http://www.runoob.com/images/ajax.gif">
+<meta name="twitter:title" content="Cf-Blog">
   
     <link rel="alternative" href="/atom.xml" title="Cf-Blog" type="application/atom+xml">
   
@@ -166,47 +159,38 @@ var _hmt = _hmt || [];
                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-Ajax相关知识" class="article article-type-post "
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+                
+              
+                
+                  
+                    
+                      
+                          
+                            <section class="archives-wrap">
+                              <div class="archive-year-wrap">
+                                <a href="/archives/2017" class="archive-year">
+                                  2017
+                                </a>
+                              </div>
+                              <div class="archives">
+                                
+                                  <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <div class="article-meta">
+        <a href="/2017/11/19/Ajax相关知识/" class="archive-article-date">
+  	<time datetime="2017-11-19T14:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
+</a>
+
+      </div>
+      
   
-    <h1 class="article-title" itemprop="name">
-      Ajax语法
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/19/Ajax相关知识/">Ajax语法</a>
     </h1>
   
 
-          
-            <a href="/2018/03/14/Ajax相关知识/" class="archive-article-date">
-  	<time datetime="2018-03-14T06:51:44.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    <p>AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）<br><a id="more"></a><br>工作原理<br><img src="http://www.runoob.com/images/ajax.gif" alt="image"></p>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">//1创建ajax对象</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">	<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);<span class="comment">//兼容IE6以下版本的浏览器</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//2链接 open()接受三个参数 请求方式 请求地址 是否是异步（同步几乎不用）</span></span><br><span class="line"><span class="comment">//get是把请求的数据放到地址栏上 </span></span><br><span class="line"><span class="comment">//post是把数据放到send上</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'http://test.jgw.com/ajax/test.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3发送</span></span><br><span class="line">xhr.send();</span><br><span class="line">			</span><br><span class="line"><span class="comment">//4接收</span></span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;<span class="comment">//XHR对象的readyState属性表示请求/响应过程的当前活动阶段</span></span><br><span class="line"><span class="comment">//1-启动，调用了open()方法，未调用send()方法；</span></span><br><span class="line"><span class="comment">//2-发送，已经调用了send()方法，未接收到响应；</span></span><br><span class="line"><span class="comment">//3-接收，已经接收到部分响应数据；</span></span><br><span class="line"><span class="comment">//4-完成，已经接收到全部响应数据；</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//readyState的值发生变化就会调用onreadystatechange 事件</span></span><br><span class="line">					</span><br><span class="line">        <span class="keyword">if</span>(xhr.status==<span class="number">200</span>)&#123;</span><br><span class="line">	<span class="comment">//status是状态码 200是成功 404是错误</span></span><br><span class="line">        	alert(xhr.responseText)<span class="comment">//responseText：响应返回的主体内容，为字符串类型</span></span><br><span class="line">		<span class="comment">//responseXML</span></span><br><span class="line">	    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			alert(<span class="string">'错误'</span>+xhr.status)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">			</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="GET和POST"><a href="#GET和POST" class="headerlink" title="GET和POST"></a>GET和POST</h3><h5 id="get"><a href="#get" class="headerlink" title="get"></a>get</h5><pre><code>1、会把数据放在地址栏上 发送  
-2、get的安全性能底   
-3、get的大小是有限制的  
-PS:get多用于获取数据
-</code></pre><h5 id="post"><a href="#post" class="headerlink" title="post"></a>post</h5><pre><code>1、不会把数据放在地址里上  
-2、安全性能高   
-3、post是没有限制的  
-PS:多用于发送数据的
-</code></pre><p> GET—-用于获取数据（如：浏览帖子）<br> POST—用于上传数据（如：用户注册</p>
-<h3 id="封装ajax"><a href="#封装ajax" class="headerlink" title="封装ajax"></a>封装ajax</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url, fncus, fner</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest;</span><br><span class="line">	xhr.open(<span class="string">'get'</span>, url, <span class="literal">true</span>); <span class="comment">//true代表异步</span></span><br><span class="line">	xhr.send();</span><br><span class="line"></span><br><span class="line">	xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">				fncus(xhr.responseText)</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> (fner) &#123;</span><br><span class="line">					fner(<span class="string">'请求失败，状态码'</span> + xhr.status)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">ajax(<span class="string">'http://test.jgw.com/ajax/data/0.txt'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(data) <span class="comment">//获取成功后打印出data </span></span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-                      
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
+        <div class="article-info info-on-right">
           
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
@@ -221,144 +205,21 @@ PS:多用于发送数据的
 
             
 
-              
-
-                  
-                    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
+        <div class="clearfix"></div>
+    </header>
   </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/14/Ajax相关知识/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-                      
-                        <div class="clearfix"></div>
-    </div>
-    </div>
 </article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2018/03/14/css3 使用伪类创建小箭头、绘制任意形状的三角形/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          css3 使用伪类创建小箭头、绘制任意形状的三角形
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-    
-
-      
-
-            
-              
-                <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Ajax相关知识" data-title="Ajax语法" data-url="http://yoursite.com/2018/03/14/Ajax相关知识/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"litten-hexo"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-                  
-                      
-                        <!-- 目录内容 -->
-                        
-                          <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display: none;">
-                            <span class="btn-bg"></span>
-                            <span class="btn-text">文章导航</span>
-                          </p>
-                          <div id="toc-article" class="toc-article">
-                            <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                            <strong class="toc-title">文章目录</strong>
-                            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GET和POST"><span class="toc-number">2.</span> <span class="toc-text">GET和POST</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#get"><span class="toc-number">2.0.1.</span> <span class="toc-text">get</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#post"><span class="toc-number">2.0.2.</span> <span class="toc-text">post</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装ajax"><span class="toc-number">3.</span> <span class="toc-text">封装ajax</span></a></li></ol>
-                          </div>
-                          <script type="text/javascript">
-                            function showToc() {
-                              var toc_article = document.getElementById("toc-article");
-                              var show_toc_btn = document.getElementById("show-toc-btn");
-                              toc_article.setAttribute("style", "display:block");
-                              show_toc_btn.setAttribute("style", "display:none");
-                            };
-
-                            function showBtn() {
-                              var toc_article = document.getElementById("toc-article");
-                              var show_toc_btn = document.getElementById("show-toc-btn");
-                              toc_article.setAttribute("style", "display:none");
-                              show_toc_btn.setAttribute("style", "display:block");
-                            };
-
-                          </script>
-                          
-                            <!-- 目录内容结束 -->
+                                    
+                                      
+                              </div>
+                            </section>
                             
 
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
+                              
 
-                                </script>
+                                  
 
               </div>
             </div>
@@ -380,8 +241,8 @@ PS:多用于发送数据的
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
@@ -1481,15 +1342,15 @@ PS:多用于发送数据的
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
