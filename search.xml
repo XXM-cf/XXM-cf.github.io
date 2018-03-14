@@ -1678,6 +1678,25 @@ setTimeout(<span class="function"><span class="keyword">function</span>(<span cl
     </entry>
     
     <entry>
+      <title><![CDATA[javascript中的 export和export default的区别]]></title>
+      <url>http://yoursite.com/2018/03/14/javascript%E4%B8%AD%E7%9A%84%20export%E5%92%8Cexport%20default%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      <content type="html"><![CDATA[<p>答疑解惑，export和export default的区别<br><a id="more"></a><br>本文原创地址链接：<a href="http://blog.csdn.net/zhou_xiao_cheng/article/details/52759632，未经博主允许不得转载。" target="_blank" rel="noopener">http://blog.csdn.net/zhou_xiao_cheng/article/details/52759632，未经博主允许不得转载。</a><br> 相信很多人都使用过export、export default、import，然而它们到底有什么区别呢？<br>在JavaScript ES6中，export与export default均可用于导出常量、函数、文件、模块等，你可以在其它文件或模块中通过import+(常量 | 函数 | 文件 | 模块)名的方式，将其导入，以便能够对其进行使用，但在一个文件或模块中，export、import可以有多个，export default仅有一个。<br>具体使用：<br>1、</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对应的导入方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo2.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; str, f &#125; <span class="keyword">from</span> <span class="string">'demo1'</span> <span class="comment">//也可以分开写两次，导入的时候带花括号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 对应的导入方式： --&gt;</span><br><span class="line"><span class="comment">//demo2.js</span></span><br><span class="line"><span class="keyword">import</span> str <span class="keyword">from</span> <span class="string">'demo1'</span> <span class="comment">//导入的时候没有花括号</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[javascript中的call()和apply()方法]]></title>
       <url>http://yoursite.com/2018/03/14/javascript%E4%B8%AD%E7%9A%84call()%E5%92%8Capply()%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>详细介绍js中的call和apply()方法<br><a id="more"></a></p>
@@ -1714,25 +1733,6 @@ setTimeout(<span class="function"><span class="keyword">function</span>(<span cl
         <tags>
             
             <tag> js </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[javascript中的 export和export default的区别]]></title>
-      <url>http://yoursite.com/2018/03/14/javascript%E4%B8%AD%E7%9A%84%20export%E5%92%8Cexport%20default%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-      <content type="html"><![CDATA[<p>答疑解惑，export和export default的区别<br><a id="more"></a><br>本文原创地址链接：<a href="http://blog.csdn.net/zhou_xiao_cheng/article/details/52759632，未经博主允许不得转载。" target="_blank" rel="noopener">http://blog.csdn.net/zhou_xiao_cheng/article/details/52759632，未经博主允许不得转载。</a><br> 相信很多人都使用过export、export default、import，然而它们到底有什么区别呢？<br>在JavaScript ES6中，export与export default均可用于导出常量、函数、文件、模块等，你可以在其它文件或模块中通过import+(常量 | 函数 | 文件 | 模块)名的方式，将其导入，以便能够对其进行使用，但在一个文件或模块中，export、import可以有多个，export default仅有一个。<br>具体使用：<br>1、</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对应的导入方式：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo2.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; str, f &#125; <span class="keyword">from</span> <span class="string">'demo1'</span> <span class="comment">//也可以分开写两次，导入的时候带花括号</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 对应的导入方式： --&gt;</span><br><span class="line"><span class="comment">//demo2.js</span></span><br><span class="line"><span class="keyword">import</span> str <span class="keyword">from</span> <span class="string">'demo1'</span> <span class="comment">//导入的时候没有花括号</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> vue </tag>
             
         </tags>
         
