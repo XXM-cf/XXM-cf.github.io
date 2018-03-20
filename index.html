@@ -165,19 +165,44 @@ var _hmt = _hmt || [];
   itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/20/一个前段数据动态显示的插件/">数字动态切换</a>
+    </h1>
+  
+
+          
+            <a href="/2018/03/20/一个前段数据动态显示的插件/" class="archive-article-date">
+  	<time datetime="2018-03-20T15:27:42.519Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+
+              
+      </header>
+      
         <div class="article-entry" itemprop="articleBody">
           
-                    <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"number-slide"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> numRun2 = $(<span class="string">".number-slide"</span>).numberAnimate(&#123;</span></span><br><span class="line"><span class="javascript">    num: <span class="string">'212135'</span>, <span class="comment">// 初始值</span></span></span><br><span class="line"><span class="javascript">    speed: <span class="number">1000</span>, <span class="comment">//  切换速度</span></span></span><br><span class="line"><span class="javascript">    symbol: <span class="string">","</span></span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> nums2 = <span class="number">212135</span>;</span></span><br><span class="line"><span class="javascript">  setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> n = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">7</span> + <span class="number">1</span>)</span></span><br><span class="line"><span class="undefined">    nums2 += n;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(n, nums2)</span></span><br><span class="line"><span class="undefined">    numRun2.resetData(nums2);</span></span><br><span class="line"><span class="undefined">  &#125;, 5000);</span></span><br><span class="line"><span class="undefined">&#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.mt-number-animate</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">25px</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">"Helvetica35-Thin"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.mt-number-animate</span> <span class="selector-class">.mt-number-animate-dot</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">text-align</span>: center</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.mt-number-animate</span> <span class="selector-class">.mt-number-animate-dom</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">"Helvetica35-Thin"</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.mt-number-animate</span> <span class="selector-class">.mt-number-animate-dom</span> <span class="selector-class">.mt-number-animate-span</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">float</span>: left</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line">;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line">  $.fn.numberAnimate = <span class="function"><span class="keyword">function</span>(<span class="params">setting</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> defaults = &#123;</span><br><span class="line">        speed: <span class="number">1000</span>, <span class="comment">//动画速度</span></span><br><span class="line">        num: <span class="string">""</span>, <span class="comment">//初始化值</span></span><br><span class="line">        iniAnimate: <span class="literal">true</span>, <span class="comment">//是否要初始化动画效果</span></span><br><span class="line">        symbol: <span class="string">''</span>, <span class="comment">//默认的分割符号，千，万，千万</span></span><br><span class="line">        dot: <span class="number">0</span> <span class="comment">//保留几位小数点</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//如果setting为空，就取default的值</span></span><br><span class="line">    <span class="keyword">var</span> setting = $.extend(defaults, setting);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果对象有多个，提示出错</span></span><br><span class="line">    <span class="keyword">if</span> ($(<span class="keyword">this</span>).length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">      alert(<span class="string">"just only one obj!"</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果未设置初始化值。提示出错</span></span><br><span class="line">    <span class="keyword">if</span> (setting.num == <span class="string">""</span>) &#123;</span><br><span class="line">      alert(<span class="string">"must set a num!"</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> nHtml = <span class="string">'&lt;div class="mt-number-animate-dom" data-num="&#123;&#123;num&#125;&#125;"&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;0&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;1&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;2&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;3&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;4&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;5&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;6&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;7&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;8&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;9&lt;/span&gt;\</span></span><br><span class="line"><span class="string">            &lt;span class="mt-number-animate-span"&gt;.&lt;/span&gt;\</span></span><br><span class="line"><span class="string">          &lt;/div&gt;'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数字处理</span></span><br><span class="line">    <span class="keyword">var</span> numToArr = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">      num = <span class="built_in">parseFloat</span>(num).toFixed(setting.dot);</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span>(num) == <span class="string">'number'</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> arrStr = num.toString().split(<span class="string">""</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> arrStr = num.split(<span class="string">""</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//console.log(arrStr);</span></span><br><span class="line">      <span class="keyword">return</span> arrStr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置DOM symbol:分割符号</span></span><br><span class="line">    <span class="keyword">var</span> setNumDom = <span class="function"><span class="keyword">function</span>(<span class="params">arrStr</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> shtml = <span class="string">'&lt;div class="mt-number-animate"&gt;'</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = arrStr.length; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i != <span class="number">0</span> &amp;&amp; (len - i) % <span class="number">3</span> == <span class="number">0</span> &amp;&amp; setting.symbol != <span class="string">""</span> &amp;&amp; arrStr[i] != <span class="string">"."</span>) &#123;</span><br><span class="line">          shtml += <span class="string">'&lt;div class="mt-number-animate-dot"&gt;'</span> + setting.symbol + <span class="string">'&lt;/div&gt;'</span> + nHtml.replace(<span class="string">"&#123;&#123;num&#125;&#125;"</span>, arrStr[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          shtml += nHtml.replace(<span class="string">"&#123;&#123;num&#125;&#125;"</span>, arrStr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      shtml += <span class="string">'&lt;/div&gt;'</span>;</span><br><span class="line">      <span class="keyword">return</span> shtml;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//执行动画</span></span><br><span class="line">    <span class="keyword">var</span> runAnimate = <span class="function"><span class="keyword">function</span>(<span class="params">$parent</span>) </span>&#123;</span><br><span class="line">      $parent.find(<span class="string">".mt-number-animate-dom"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> num = $(<span class="keyword">this</span>).attr(<span class="string">"data-num"</span>);</span><br><span class="line">        num = (num == <span class="string">"."</span> ? <span class="number">10</span> : num);</span><br><span class="line">        <span class="keyword">var</span> spanHei = $(<span class="keyword">this</span>).height() / <span class="number">11</span>; <span class="comment">//11为元素个数</span></span><br><span class="line">        <span class="keyword">var</span> thisTop = -num * spanHei + <span class="string">"px"</span>;</span><br><span class="line">        <span class="keyword">if</span> (thisTop != $(<span class="keyword">this</span>).css(<span class="string">"top"</span>)) &#123;</span><br><span class="line">          <span class="keyword">if</span> (setting.iniAnimate) &#123;</span><br><span class="line">            <span class="comment">//HTML5不支持</span></span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">window</span>.applicationCache) &#123;</span><br><span class="line">              $(<span class="keyword">this</span>).animate(&#123;</span><br><span class="line">                top: thisTop</span><br><span class="line">              &#125;, setting.speed);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              $(<span class="keyword">this</span>).css(&#123;</span><br><span class="line">                <span class="string">'transform'</span>: <span class="string">'translateY('</span> + thisTop + <span class="string">')'</span>,</span><br><span class="line">                <span class="string">'-ms-transform'</span>: <span class="string">'translateY('</span> + thisTop + <span class="string">')'</span>,</span><br><span class="line">                <span class="comment">/* IE 9 */</span></span><br><span class="line">                <span class="string">'-moz-transform'</span>: <span class="string">'translateY('</span> + thisTop + <span class="string">')'</span>,</span><br><span class="line">                <span class="comment">/* Firefox */</span></span><br><span class="line">                <span class="string">'-webkit-transform'</span>: <span class="string">'translateY('</span> + thisTop + <span class="string">')'</span>,</span><br><span class="line">                <span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">                <span class="string">'-o-transform'</span>: <span class="string">'translateY('</span> + thisTop + <span class="string">')'</span>,</span><br><span class="line">                <span class="string">'-ms-transition'</span>: setting.speed / <span class="number">1000</span> + <span class="string">'s'</span>,</span><br><span class="line">                <span class="string">'-moz-transition'</span>: setting.speed / <span class="number">1000</span> + <span class="string">'s'</span>,</span><br><span class="line">                <span class="string">'-webkit-transition'</span>: setting.speed / <span class="number">1000</span> + <span class="string">'s'</span>,</span><br><span class="line">                <span class="string">'-o-transition'</span>: setting.speed / <span class="number">1000</span> + <span class="string">'s'</span>,</span><br><span class="line">                <span class="string">'transition'</span>: setting.speed / <span class="number">1000</span> + <span class="string">'s'</span></span><br><span class="line">              &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            setting.iniAnimate = <span class="literal">true</span>;</span><br><span class="line">            $(<span class="keyword">this</span>).css(&#123;</span><br><span class="line">              top: thisTop</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span>(<span class="params">$parent</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//初始化</span></span><br><span class="line">      $parent.html(setNumDom(numToArr(setting.num)));</span><br><span class="line">      runAnimate($parent);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//重置参数</span></span><br><span class="line">    <span class="keyword">this</span>.resetData = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> newArr = numToArr(num);</span><br><span class="line">        <span class="keyword">var</span> $dom = $(<span class="keyword">this</span>).find(<span class="string">".mt-number-animate-dom"</span>);</span><br><span class="line">        <span class="keyword">if</span> ($dom.length &lt; newArr.length) &#123;</span><br><span class="line">          $(<span class="keyword">this</span>).html(setNumDom(numToArr(num)));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          $dom.each(<span class="function"><span class="keyword">function</span>(<span class="params">index, el</span>) </span>&#123;</span><br><span class="line">            $(<span class="keyword">this</span>).attr(<span class="string">"data-num"</span>, newArr[index]);</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        runAnimate($(<span class="keyword">this</span>));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//init</span></span><br><span class="line">    init($(<span class="keyword">this</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
-
-                      
+            <p>贴代码<br>
+              
+                  
 
                         
     </div>
     <div class="article-info article-info-index">
       
           
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
             
 
               
@@ -232,38 +257,9 @@ var _hmt = _hmt || [];
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <p>所有的环境都是在 node 安装好的基础上执行的。 node -v 查看node的安装情况。npm -v查看npm 的安装情况.</p>
-<p>gulp自动化构建常用参数</p>
-<p>1、src 读取文件或者文件夹</p>
-<p>2、dest 生成文件也就是写文件</p>
-<p>3、watch 检测文件</p>
-<p>4、tesk 指定任务</p>
-<p>5、pipe 用流的方式处理 gulp.</p>
-<p>解释：</p>
-<p>bower_components 这个文件下边放的是 通过bower安装的第三方的js等。</p>
-<p>build  : 项目整合目录，一般在这里整合所有的代码，不压缩。</p>
-<p>dist : 项目发布目录，也是压缩所有文件后的。</p>
-<p>src :  项目源文件目录，这里放置的都是源文件。</p>
-<p>test : 这个是编写自动化测试的</p>
-<p>1、在终端进入项目根目录，安装bower.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower init</span><br></pre></td></tr></table></figure>
-<p>初始化Bower,生成bower.json文件，然后安装需要的的插件以及第三方文件例如angular  执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install - - save angular</span><br></pre></td></tr></table></figure>
-<p>具体查看 bower 的使用方法。</p>
-<p>2、安装查看gulp，在项目根目录下。</p>
-<p>全局安装gulp </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global gulp</span><br></pre></td></tr></table></figure>
-<p>然后创建配置文件 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init    初始化并创建 package.json文件</span><br><span class="line">npm install --save-dev gulp  将Node的配置环境装进配置文件中</span><br></pre></td></tr></table></figure>
-<p>。</p>
-<p> 然后安装需要的插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install xxx —save-dev将文件自动写进配置文件中</span><br></pre></td></tr></table></figure>
-<p>一般常用的创建整站的有这些，多个的话可以将插件以空格的形式分开</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-clean gulp-concat gulp-connect gulp-cssmin gulp-imagemin gulp-less gulp-load-plugins gulp-uglify open  -—save-dev</span><br></pre></td></tr></table></figure>
-<p>然后则是gulpfile.js配置文件的编写。具体为下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">//引入gulp</span><br><span class="line">var gulp = require(<span class="string">'gulp'</span>);</span><br><span class="line">//这样的话 其他的模块可以直接使用 $ 符号来引入</span><br><span class="line">var $ = require(<span class="string">'gulp-load-plugins'</span>)();</span><br><span class="line">var open = require(<span class="string">'open'</span>);</span><br><span class="line"></span><br><span class="line">//定义目录路径</span><br><span class="line">var app = &#123;</span><br><span class="line">    //源代码，文件目录</span><br><span class="line">    srcPath: <span class="string">'src/'</span>,</span><br><span class="line">    //文件整合之后的目录</span><br><span class="line">    devPath: <span class="string">'build/'</span>,</span><br><span class="line">    //项目，发布目录上产部署</span><br><span class="line">    prdPath: <span class="string">'dist/'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//通过bower安装的插件，需要拷贝到 devPath prdPath中</span><br><span class="line">gulp.task(<span class="string">'lib'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    //   /**/* 读取这个文件夹下边的所有的文件或者文件夹</span><br><span class="line">    gulp.src(<span class="string">'bower_components/**/*'</span>)</span><br><span class="line">    //读取完整后进行操作  西安拷贝到整合目录 并重命名，在拷贝到生产目录并重命名</span><br><span class="line">    .pipe(gulp.dest(app.devPath + <span class="string">'vendor'</span>))</span><br><span class="line">    .pipe(gulp.dest(app.prdPath + <span class="string">'vendor'</span>))</span><br><span class="line">    .pipe($.connect.reload());  //文件更改后自动变异 并执行启动服务重新打开浏览器</span><br><span class="line">&#125;);</span><br><span class="line">//将 html 拷贝到 devPath prdPath中</span><br><span class="line">gulp.task(<span class="string">'html'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    gulp.src(app.srcPath + <span class="string">'**/*.html'</span>)</span><br><span class="line">    .pipe(gulp.dest(app.devPath))</span><br><span class="line">    .pipe(gulp.dest(app.prdPath))</span><br><span class="line">    .pipe($.connect.reload());</span><br><span class="line">&#125;);</span><br><span class="line">//将 模拟的json 文件 拷贝到 devPath prdPath中</span><br><span class="line">gulp.task(<span class="string">'json'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    gulp.src(app.srcPath + <span class="string">'data/**/*.json'</span>)</span><br><span class="line">    .pipe(gulp.dest(app.devPath + <span class="string">'data'</span>))</span><br><span class="line">    .pipe(gulp.dest(app.prdPath + <span class="string">'data'</span>))</span><br><span class="line">    .pipe($.connect.reload());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//将 index.less 文件 拷贝到 devPath prdPath中，index.less引入了所有的其他的less</span><br><span class="line">gulp.task(<span class="string">'less'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    gulp.src(app.srcPath + <span class="string">'style/index.less'</span>)</span><br><span class="line">    .pipe($.less())</span><br><span class="line">    .pipe(gulp.dest(app.devPath + <span class="string">'css'</span>))</span><br><span class="line">    .pipe($.cssmin())</span><br><span class="line">    .pipe(gulp.dest(app.prdPath + <span class="string">'css'</span>))</span><br><span class="line">    .pipe($.connect.reload());</span><br><span class="line">&#125;);</span><br><span class="line">// 拷贝 js 文件  将所有的源文件中的js 文件整合成index.js 然后拷贝过去</span><br><span class="line">gulp.task(<span class="string">'script'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    gulp.src(app.srcPath + <span class="string">'script/**/*.js'</span>)</span><br><span class="line">    .pipe($.concat(<span class="string">'index.js'</span>))</span><br><span class="line">    .pipe(gulp.dest(app.devPath + <span class="string">'js'</span>))</span><br><span class="line">    .pipe($.uglify())</span><br><span class="line">    .pipe(gulp.dest(app.prdPath + <span class="string">'js'</span>))</span><br><span class="line">    .pipe($.connect.reload());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//拷贝 压缩 图片 最后放到发布目录下</span><br><span class="line">gulp.task(<span class="string">'image'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    gulp.src(app.srcPath + <span class="string">'image/**/*'</span>)</span><br><span class="line">    //江源图片放到整合目录下，在压缩放到生产目录下</span><br><span class="line">    .pipe(gulp.dest(app.devPath + <span class="string">'image'</span>))</span><br><span class="line">    .pipe($.imagemin())</span><br><span class="line">    .pipe(gulp.dest(app.prdPath + <span class="string">'image'</span>))</span><br><span class="line">    .pipe($.connect.reload());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//总的方法</span><br><span class="line">gulp.task(<span class="string">'build'</span>,[<span class="string">'image'</span>, <span class="string">'script'</span>, <span class="string">'less'</span>, <span class="string">'json'</span>, <span class="string">'html'</span>, <span class="string">'lib'</span>]);</span><br><span class="line"></span><br><span class="line">//清除旧文件，每次更新的时候</span><br><span class="line">gulp.task(<span class="string">'clean'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    gulp.src([app.devPath,app.prdPath])</span><br><span class="line">    .pipe($.clean());</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//编写服务</span><br><span class="line">gulp.task(<span class="string">'serve'</span>,[<span class="string">'build'</span>], <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    $.connect.server(&#123;</span><br><span class="line">        //服务起来的入口</span><br><span class="line">        root: [app.devPath],</span><br><span class="line">        //文件更改后自动刷新页面</span><br><span class="line">        livereload: <span class="literal">true</span>,</span><br><span class="line">        //端口号</span><br><span class="line">        port: 1234</span><br><span class="line">    &#125;);</span><br><span class="line">    // 在 命令工具中执行 gulp serve  就相当于是启动了服务</span><br><span class="line">    //自动打开浏览器</span><br><span class="line">    open(<span class="string">'http://localhost:1234'</span>);</span><br><span class="line">    //我们希望更改了文件，就自动编译，并且打包等然后打开浏览器</span><br><span class="line">    gulp.watch(<span class="string">'bower_components/**/*'</span> , [<span class="string">'lib'</span>]);</span><br><span class="line">    //监听 script 下边的 js 文件，并执行 script 方法</span><br><span class="line">    gulp.watch(app.srcPath + <span class="string">'script/**/*.js'</span>, [<span class="string">'script'</span>]);</span><br><span class="line">    gulp.watch(app.srcPath + <span class="string">'**/*.html'</span>, [<span class="string">'html'</span>]);</span><br><span class="line">    gulp.watch(app.srcPath + <span class="string">'data/**/*.json'</span>, [<span class="string">'json'</span>]);</span><br><span class="line">    gulp.watch(app.srcPath + <span class="string">'style/**/*.less'</span>, [<span class="string">'less'</span>]);</span><br><span class="line">    gulp.watch(app.srcPath + <span class="string">'image/**/*'</span>, [<span class="string">'image'</span>]);</span><br><span class="line">    //这样文件变更了就会自动构建</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//默认执行的任务，直接 执行 gulp 变行了。都编写完成后再终端 执行 gulp 便可以了。</span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'serve'</span>]);</span><br></pre></td></tr></table></figure>
-
-                      
+            <p>关于gulp的一点介绍<br>
+              
+                  
 
                         
     </div>
@@ -335,14 +331,9 @@ var _hmt = _hmt || [];
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境  </p>
-<p>下面只介绍几个常见的字段，<a href="http://javascript.ruanyifeng.com/nodejs/packagejson.html" target="_blank" rel="noopener">更多字段请移步阮大神文章</a></p>
-<h3 id="scripts字段"><a href="#scripts字段" class="headerlink" title="scripts字段"></a>scripts字段</h3><p>scripts指定了运行脚本命令的npm命令行缩写，比如start指定了运行npm run start时，所要执行的命令。</p>
-<p>下面的设置指定了npm run preinstall、npm run postinstall、npm run start、npm run test时，所要执行的命令。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"preinstall"</span>: <span class="string">"echo here it comes!"</span>,</span><br><span class="line">    <span class="string">"postinstall"</span>: <span class="string">"echo there it goes!"</span>,</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"node index.js"</span>,</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"tap test/*.js"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### dependencies字段，devDependencies字段</span></span><br><span class="line"><span class="string">dependencies字段指定了项目运行所依赖的模块，devDependencies指定项目开发所需要的模块。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">它们都指向一个对象。该对象的各个成员，分别由模块名和对应的版本要求组成，表示依赖的模块及其版本范围。  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">对应的版本可以加上各种限定，主要有以下几种：  </span></span><br><span class="line"><span class="string">&gt; 指定版本：比如1.2.2，遵循“大版本.次要版本.小版本”的格式规定，安装时只安装指定版本。  </span></span><br><span class="line"><span class="string">&gt; 波浪号（tilde）+指定版本：比如~1.2.2，表示安装1.2.x的最新版本（不低于1.2.2），但是不安装1.3.x，也就是说安装时不改变大版本号和次要版本号。  </span></span><br><span class="line"><span class="string">&gt; 插入号（caret）+指定版本：比如ˆ1.2.2，表示安装1.x.x的最新版本（不低于1.2.2），但是不安装2.x.x，也就是说安装时不改变大版本号。需要注意的是，如果大版本号为0，则插入号的行为与波浪号相同，这是因为此时处于开发阶段，即使是次要版本号变动，也可能带来程序的不兼容。  </span></span><br><span class="line"><span class="string">&gt; latest：安装最新版本。 </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">有了package.json文件，直接使用npm install命令，就会在当前目录中安装所需要的模块。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">如果一个模块不在package.json文件之中，可以单独安装这个模块，并使用相应的参数，将其写入package.json文件之中。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>bash</span><br><span class="line">$ npm install express --save-dev</span><br></pre></td></tr></table></figure>
-<h3 id="config-字段"><a href="#config-字段" class="headerlink" title="config 字段"></a>config 字段</h3><p>config字段用于添加命令行的环境变量。</p>
-
-                      
+            <p>每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块<br>
+              
+                  
 
                         
     </div>
@@ -365,52 +356,6 @@ var _hmt = _hmt || [];
               
                 <p class="article-more-link">
                   <a class="article-more-a" href="/2018/03/20/聊一聊package.json/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-回来了" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-        <div class="article-entry" itemprop="articleBody">
-          
-                    <h3 id="我回来了，久别的人们"><a href="#我回来了，久别的人们" class="headerlink" title="我回来了，久别的人们"></a>我回来了，久别的人们</h3>
-                      
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/03/14/回来了/">
                     展开全文 >></a>
                 </p>
                 
@@ -856,6 +801,82 @@ var _hmt = _hmt || [];
               
                 <p class="article-more-link">
                   <a class="article-more-a" href="/2018/03/14/浅谈CSS布局/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
+    <article id="post-文本框输入效果" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/14/文本框输入效果/">文本框输入效果总结</a>
+    </h1>
+  
+
+          
+            <a href="/2018/03/14/文本框输入效果/" class="archive-article-date">
+  	<time datetime="2018-03-14T06:51:44.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
+</a>
+
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <h1 id="文本框输入效果"><a href="#文本框输入效果" class="headerlink" title="文本框输入效果"></a>文本框输入效果</h1><hr>
+<p>简单的罗列了几个文本框输入后的效果;话不多说，直接上代码：</p>
+<p>1、选中去除文本框文字，离开后显示原有文字：</p>
+              
+                  
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/03/14/文本框输入效果/">
                     展开全文 >></a>
                 </p>
                 
@@ -2008,19 +2029,19 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2032,19 +2053,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2060,10 +2077,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">移动端App</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vsc</a>
               </li>
              
@@ -2072,7 +2085,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">移动端App</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
             
             <div class="clearfix"></div>
