@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Cf-Blog">
 <meta property="og:description" content="关于gulp的一点介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-20T15:36:01.077Z">
+<meta property="og:updated_time" content="2018-03-24T09:00:03.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp搭建项目流程">
 <meta name="twitter:description" content="关于gulp的一点介绍">
@@ -193,25 +193,26 @@ var _hmt = _hmt || [];
 <p>3、watch 检测文件</p>
 <p>4、tesk 指定任务</p>
 <p>5、pipe 用流的方式处理 gulp.</p>
+<p>在项目中创建以下文件夹<br>build<br>dist<br>src</p>
+<blockquote>
 <p>解释：</p>
-<p>bower_components 这个文件下边放的是 通过bower安装的第三方的js等。</p>
 <p>build  : 项目整合目录，一般在这里整合所有的代码，不压缩。</p>
 <p>dist : 项目发布目录，也是压缩所有文件后的。</p>
 <p>src :  项目源文件目录，这里放置的都是源文件。</p>
+</blockquote>
 <p>test : 这个是编写自动化测试的</p>
-<p>1、在终端进入项目根目录，安装bower.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower init</span><br></pre></td></tr></table></figure>
-<p>初始化Bower,生成bower.json文件，然后安装需要的的插件以及第三方文件例如angular  执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install - - save angular</span><br></pre></td></tr></table></figure>
-<p>具体查看 bower 的使用方法。</p>
-<p>2、安装查看gulp，在项目根目录下。</p>
+<p><strong>安装查看gulp，在项目根目录下。</strong>  </p>
 <p>全局安装gulp </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global gulp</span><br></pre></td></tr></table></figure>
 <p>然后创建配置文件 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init    初始化并创建 package.json文件</span><br><span class="line">npm install --save-dev gulp  将Node的配置环境装进配置文件中</span><br></pre></td></tr></table></figure>
-<p>。</p>
 <p> 然后安装需要的插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install xxx —save-dev将文件自动写进配置文件中</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/Darren_code/p/gulp.html" target="_blank" rel="noopener">关于gulp插件的详细介绍请看这</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install xxx —save-dev将文件自动写进配置文件中</span><br></pre></td></tr></table></figure></p>
+<p>gulp-htmlmin 看到名字就能知道，这个插件是用来压缩HTML。PS：注释啥的都可以去掉哦，看文档get更多技能哈<br>gulp-imagemin 除了能压缩常见的图片格式，还能压缩 SVG，叼叼的~  </p>
+<p>gulp-clean-css 压缩 CSS。我原本推荐的是  gulp-minify-css，结果其首页中已建议改用gulp-clean-css…   </p>
+<p>gulp-uglify 专业压缩 Javascript<br>gulp-concat 上面几个都是压缩，这插件是管合并的…恭喜，“减少网络请求”的成就达成:)  </p>
+<p>gulp-autoprefixer 给 CSS增加前缀。解决某些CSS属性不是标准属性，有各种浏览器前缀的情况，灰常有用  </p>
+<p>gulp-rename 修改文件名称。比如有时我们需要把app.js改成app.min.js，瞬间高级了<br>gulp-util 最基础的工具，但俺只用来打日志…</p>
 <p>一般常用的创建整站的有这些，多个的话可以将插件以空格的形式分开</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-clean gulp-concat gulp-connect gulp-cssmin gulp-imagemin gulp-less gulp-load-plugins gulp-uglify open  -—save-dev</span><br></pre></td></tr></table></figure>
 <p>然后则是gulpfile.js配置文件的编写。具体为下</p>
@@ -1498,7 +1499,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1506,11 +1507,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1519,6 +1520,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1559,10 +1564,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
             
             <div class="clearfix"></div>
