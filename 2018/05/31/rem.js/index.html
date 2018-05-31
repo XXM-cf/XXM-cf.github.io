@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>浏览器兼容性总结 | Cf-Blog</title>
+  <title>rem.js | Cf-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍前端常见的几个兼容性问题">
+  <meta name="description" content="rem单位在各种屏幕上的适配代码">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器兼容性总结">
-<meta property="og:url" content="http://yoursite.com/2018/03/14/兼容性总结/index.html">
+<meta property="og:title" content="rem.js">
+<meta property="og:url" content="http://yoursite.com/2018/05/31/rem.js/index.html">
 <meta property="og:site_name" content="Cf-Blog">
-<meta property="og:description" content="介绍前端常见的几个兼容性问题">
+<meta property="og:description" content="rem单位在各种屏幕上的适配代码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-26T14:15:11.095Z">
+<meta property="og:updated_time" content="2018-05-31T02:19:55.350Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器兼容性总结">
-<meta name="twitter:description" content="介绍前端常见的几个兼容性问题">
+<meta name="twitter:title" content="rem.js">
+<meta name="twitter:description" content="rem单位在各种屏幕上的适配代码">
   
     <link rel="alternative" href="/atom.xml" title="Cf-Blog" type="application/atom+xml">
   
@@ -164,7 +164,7 @@ var _hmt = _hmt || [];
                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-兼容性总结" class="article article-type-post "
+                <article id="post-rem.js" class="article article-type-post "
   itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,13 +172,13 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      浏览器兼容性总结
+      rem.js
     </h1>
   
 
           
-            <a href="/2018/03/14/兼容性总结/" class="archive-article-date">
-  	<time datetime="2018-03-14T06:51:44.814Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
+            <a href="/2018/05/31/rem.js/" class="archive-article-date">
+  	<time datetime="2018-05-31T02:20:34.093Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-31</time>
 </a>
 
               
@@ -186,22 +186,7 @@ var _hmt = _hmt || [];
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <p>介绍前端常见的几个兼容性问题<br><a id="more"></a><br>1.input<br>input 设置左右padding之后，ie中输入过多内容后，padding消失。<br>解决方法：在外面套一层div设置宽高，padding然后设置input的宽高为100%  </p>
-<p>2.在设置float的div在IE下设置margin时会产生双边距，这是IE6的一个典型bug，<br>解决方法是加上display:inline;  </p>
-<p>3.Ie6下定义1px高的div<br>ie6默认div高度为一个字体显示的高度，所在ie6下div的高度大于等于一个字的高度，因此在ie6下定义高度为1px的容器，显示的是一个字体的高度  </p>
-<p>overflow:hidden; || zoom:0.08;  ||  line-height:1px;  </p>
-<p>4.chrome浏览器  中文界面下默认会将小于12px 的文本强制按照12px 显示,可通过加入 CSS 属性-webkit-text-size-adjust: none;解决.  </p>
-<p>5.各个浏览器默认的内外边距不同<br>解决 ：<br>*{margin:0;padding:0;}  </p>
-<ol>
-<li>IE6 width为奇数，右边多出1px的问题<br>问题：<br>父级元素采用相对定位，且宽度设置为奇数时，子元素采用绝对定位，在ie6中会出现右侧多出1像素<br>解决：<br>将宽度的奇数值改成偶数  </li>
-</ol>
-<p>7.IE6两个层之间3px的问题<br>问题：<br>左边层采用浮动，右边没有采用浮动时在ie6中两层之间就会产生3像素的间距<br>解决：<br>A、右边层也采用浮动  float<br>B、左边层添加属性 margin-right:-3px;  </p>
-<ol>
-<li>除去滚动条的问题<br>问题：<br>隐藏滚动条<br>解决：<br>1、只有ie6-7支持<body scroll="no"><br>2、除ie6-7不支持 body{overflow:hidden}<br>3、所有浏览器 html{overflow:hidden}</body></li>
-</ol>
-<p>9、标准的事件绑定方法函数为addEventListener，但IE下是attachEvent；  </p>
-<p>10.封装一个获取行外样式的函数:(兼容所有浏览器,包括低版本IE6,7)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">funtion getStyle(obj,name)&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj.currentStyle)&#123;</span><br><span class="line">        <span class="comment">//IE</span></span><br><span class="line">        <span class="keyword">return</span> obj.currentStyle[name];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//Chrom,FF</span></span><br><span class="line">        <span class="keyword">return</span> getComputedStyle(obj,<span class="literal">false</span>)[name];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    调用：getStyle(oDiv,<span class="string">'width'</span>);</span><br></pre></td></tr></table></figure>
+                    <p> rem单位在各种屏幕上的适配代码<br> <a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * rem单位在各种屏幕上的适配代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">  <span class="comment">// width用来设置设计稿原型的屏幕宽度（这里是以 Iphone 6为原型的设计稿）</span></span><br><span class="line">  <span class="keyword">const</span> width = <span class="number">375</span></span><br><span class="line">  <span class="comment">// 注册 resize事件</span></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, setFontSize, <span class="literal">false</span>)</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setFontSize</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> clientWidth = <span class="built_in">document</span>.documentElement.clientWidth</span><br><span class="line">    <span class="comment">// 这里是设置屏幕的最大和最小值时候给一个默认值</span></span><br><span class="line">    <span class="keyword">if</span> (clientWidth &gt; <span class="number">720</span>) clientWidth = <span class="number">720</span></span><br><span class="line">    <span class="keyword">if</span> (clientWidth &lt; <span class="number">320</span>) clientWidth = <span class="number">320</span></span><br><span class="line">    <span class="comment">// 设置 rem 大小</span></span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.fontSize = <span class="string">`<span class="subst">$&#123;clientWidth <span class="regexp">/ width * 20&#125;px`</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  setFontSize()</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
 
                       
 
@@ -271,7 +256,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/14/兼容性总结/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/05/31/rem.js/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,18 +270,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/03/14/前端开发的几款浏览器插件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端开发的几款插件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/14/为啥行内元素还能设置宽高呢？/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">为啥行内元素还能设置宽高呢？</div>
+    <a href="/2018/05/31/js比较版本号大小/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js比较版本号大小</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -310,7 +286,7 @@ var _hmt = _hmt || [];
               
                 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="兼容性总结" data-title="浏览器兼容性总结" data-url="http://yoursite.com/2018/03/14/兼容性总结/"></div>
+	<div class="ds-thread" data-thread-key="rem.js" data-title="rem.js" data-url="http://yoursite.com/2018/05/31/rem.js/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

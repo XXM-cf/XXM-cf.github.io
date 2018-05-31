@@ -4,6 +4,36 @@
   
     
     <entry>
+      <title><![CDATA[rem.js]]></title>
+      <url>http://yoursite.com/2018/05/31/rem.js/</url>
+      <content type="html"><![CDATA[<p> rem单位在各种屏幕上的适配代码<br> <a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * rem单位在各种屏幕上的适配代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">  <span class="comment">// width用来设置设计稿原型的屏幕宽度（这里是以 Iphone 6为原型的设计稿）</span></span><br><span class="line">  <span class="keyword">const</span> width = <span class="number">375</span></span><br><span class="line">  <span class="comment">// 注册 resize事件</span></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, setFontSize, <span class="literal">false</span>)</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setFontSize</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> clientWidth = <span class="built_in">document</span>.documentElement.clientWidth</span><br><span class="line">    <span class="comment">// 这里是设置屏幕的最大和最小值时候给一个默认值</span></span><br><span class="line">    <span class="keyword">if</span> (clientWidth &gt; <span class="number">720</span>) clientWidth = <span class="number">720</span></span><br><span class="line">    <span class="keyword">if</span> (clientWidth &lt; <span class="number">320</span>) clientWidth = <span class="number">320</span></span><br><span class="line">    <span class="comment">// 设置 rem 大小</span></span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.fontSize = <span class="string">`<span class="subst">$&#123;clientWidth <span class="regexp">/ width * 20&#125;px`</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  setFontSize()</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[js比较版本号大小]]></title>
+      <url>http://yoursite.com/2018/05/31/js%E6%AF%94%E8%BE%83%E7%89%88%E6%9C%AC%E5%8F%B7%E5%A4%A7%E5%B0%8F/</url>
+      <content type="html"><![CDATA[<p>由于版本号是两个小数点不能直接比较，直接比较会出错（偶尔不对）。<br><a id="more"></a><br>所以就把前两位 转为浮点数比较，在相等的情况下比较后面一位。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> versionfunegt = <span class="function"><span class="keyword">function</span> (<span class="params">ver1, ver2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> version1pre = <span class="built_in">parseFloat</span>(ver1)</span><br><span class="line">  <span class="keyword">var</span> version2pre = <span class="built_in">parseFloat</span>(ver2)</span><br><span class="line">  <span class="keyword">var</span> version1next = ver1.replace(version1pre + <span class="string">'.'</span>, <span class="string">''</span>)</span><br><span class="line">  <span class="keyword">var</span> version2next = ver2.replace(version2pre + <span class="string">'.'</span>, <span class="string">''</span>)</span><br><span class="line">  <span class="keyword">if</span> (version1pre &gt; version2pre) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (version1pre &lt; version2pre) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (version1next &gt;= version2next) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[解决安卓返回键路由切换异常的问题]]></title>
       <url>http://yoursite.com/2018/04/27/%E8%A7%A3%E5%86%B3%E5%AE%89%E5%8D%93%E8%BF%94%E5%9B%9E%E9%94%AE%20%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>使用$router.push()跳转路由.安装返回键返回路径问题<br><a id="more"></a></p>
