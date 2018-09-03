@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>rem.js | Cf-Blog</title>
+  <title>web端常用的导出列表 | Cf-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="rem单位在各种屏幕上的适配代码">
+  <meta name="description" content="需要后端接口配合，实现导出报表功能">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rem.js">
-<meta property="og:url" content="http://yoursite.com/2018/05/31/rem.js/index.html">
+<meta property="og:title" content="web端常用的导出列表">
+<meta property="og:url" content="http://yoursite.com/2018/09/03/导出列表/index.html">
 <meta property="og:site_name" content="Cf-Blog">
-<meta property="og:description" content="rem单位在各种屏幕上的适配代码">
+<meta property="og:description" content="需要后端接口配合，实现导出报表功能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-31T02:19:55.350Z">
+<meta property="og:updated_time" content="2018-09-03T08:07:11.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rem.js">
-<meta name="twitter:description" content="rem单位在各种屏幕上的适配代码">
+<meta name="twitter:title" content="web端常用的导出列表">
+<meta name="twitter:description" content="需要后端接口配合，实现导出报表功能">
   
     <link rel="alternative" href="/atom.xml" title="Cf-Blog" type="application/atom+xml">
   
@@ -164,7 +164,7 @@ var _hmt = _hmt || [];
                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-rem.js" class="article article-type-post "
+                <article id="post-导出列表" class="article article-type-post "
   itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,13 +172,13 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      rem.js
+      web端常用的导出列表
     </h1>
   
 
           
-            <a href="/2018/05/31/rem.js/" class="archive-article-date">
-  	<time datetime="2018-05-31T02:20:34.093Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-31</time>
+            <a href="/2018/09/03/导出列表/" class="archive-article-date">
+  	<time datetime="2018-09-03T08:07:11.287Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
 </a>
 
               
@@ -186,7 +186,12 @@ var _hmt = _hmt || [];
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <p> rem单位在各种屏幕上的适配代码<br> <a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * rem单位在各种屏幕上的适配代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">  <span class="comment">// width用来设置设计稿原型的屏幕宽度（这里是以 Iphone 6为原型的设计稿）</span></span><br><span class="line">  <span class="keyword">const</span> width = <span class="number">375</span></span><br><span class="line">  <span class="comment">// 注册 resize事件</span></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, setFontSize, <span class="literal">false</span>)</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setFontSize</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> clientWidth = <span class="built_in">document</span>.documentElement.clientWidth</span><br><span class="line">    <span class="comment">// 这里是设置屏幕的最大和最小值时候给一个默认值</span></span><br><span class="line">    <span class="keyword">if</span> (clientWidth &gt; <span class="number">720</span>) clientWidth = <span class="number">720</span></span><br><span class="line">    <span class="keyword">if</span> (clientWidth &lt; <span class="number">320</span>) clientWidth = <span class="number">320</span></span><br><span class="line">    <span class="comment">// 设置 rem 大小</span></span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.fontSize = <span class="string">`<span class="subst">$&#123;clientWidth <span class="regexp">/ width * 20&#125;px`</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  setFontSize()</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
+                    <p>需要后端接口配合，实现导出报表功能<br><a id="more"></a><br>qs模块了解一下啊</p>
+<ul>
+<li>qs.parse()将URL解析成对象的形式</li>
+<li>qs.stringify()将对象 序列化成URL的形式，以&amp;进行拼接</li>
+</ul>
+<p>导出报表<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">lang</span>=<span class="string">'pug'</span>&gt;</span></span><br><span class="line">    el-button.hekr-btn(</span><br><span class="line">      type="primary"</span><br><span class="line">      size="small"</span><br><span class="line">      icon="iconfont icon-daochu"</span><br><span class="line">      @click="exportTable"</span><br><span class="line">    ) 导出列表</span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"> methods: &#123;</span></span><br><span class="line"><span class="javascript">    exportTable () &#123; <span class="comment">// 导出报表</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> params = &#123;</span></span><br><span class="line"><span class="javascript">        ctrlKey: <span class="keyword">this</span>.$route.query.ctrlKey, <span class="comment">// 安全验证所需要的key，根据接口需要，非必须</span></span></span><br><span class="line"><span class="javascript">        Authorization: <span class="string">`Bearer`</span> + <span class="keyword">this</span>.token.access_token,  <span class="comment">// 传入token做作安全校验</span></span></span><br><span class="line"><span class="javascript">        ...this.searchParams <span class="comment">// 列表筛选的参数</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> queryStr = qs.stringify(params)</span></span><br><span class="line"><span class="javascript">      <span class="keyword">let</span> api = <span class="string">'/v1/device/subDevice/export'</span> <span class="comment">// 后端导出API</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> src = <span class="string">`<span class="subst">$&#123;server.fire.url&#125;</span><span class="subst">$&#123;api&#125;</span>?<span class="subst">$&#123;queryStr&#125;</span>`</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.clickLink(src)</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    clickLink (src) &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> oA = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span></span><br><span class="line"><span class="undefined">      oA.href = src</span></span><br><span class="line"><span class="undefined">      oA.click()</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"> &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 
                       
 
@@ -256,7 +261,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/05/31/rem.js/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/09/03/导出列表/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -270,18 +275,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/08/31/页面级权限控制方案-动态路由(1)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          页面级权限控制方案-动态路由
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/31/js比较版本号大小/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js比较版本号大小</div>
+    <a href="/2018/08/31/权限控制之权限的设置(2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">权限控制之权限的设置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -295,7 +291,7 @@ var _hmt = _hmt || [];
               
                 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="rem.js" data-title="rem.js" data-url="http://yoursite.com/2018/05/31/rem.js/"></div>
+	<div class="ds-thread" data-thread-key="导出列表" data-title="web端常用的导出列表" data-url="http://yoursite.com/2018/09/03/导出列表/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
