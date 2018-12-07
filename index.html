@@ -161,6 +161,551 @@ var _hmt = _hmt || [];
               <div id="js-content" class="content-ll">
                 
   
+    <article id="post-导出列表 (1)" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/07/导出列表 (1)/">web端常用的导出列表</a>
+    </h1>
+  
+
+          
+            <a href="/2018/12/07/导出列表 (1)/" class="archive-article-date">
+  	<time datetime="2018-12-07T09:26:17.659Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
+</a>
+
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <p>需要后端接口配合，实现导出报表功能<br>
+              
+                  
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/12/07/导出列表 (1)/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
+    <article id="post-Vue 使用nprogress&amp;路由拦截" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/07/Vue 使用nprogress&路由拦截/">Vue 使用nprogress&amp;路由拦截</a>
+    </h1>
+  
+
+          
+            <a href="/2018/12/07/Vue 使用nprogress&路由拦截/" class="archive-article-date">
+  	<time datetime="2018-12-07T09:26:04.378Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
+</a>
+
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+                    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'@/router'</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'@/store'</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">'nprogress'</span> <span class="comment">// Progress 进度条</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'nprogress/nprogress.css'</span><span class="comment">// Progress 进度条样式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单配置</span></span><br><span class="line">NProgress.configure(&#123; <span class="attr">color</span>: <span class="string">'#f06'</span>, <span class="attr">easing</span>: <span class="string">'ease'</span>, <span class="attr">speed</span>: <span class="number">500</span>, <span class="attr">showSpinner</span>: <span class="literal">false</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> whiteList = [<span class="string">'/login'</span>, <span class="string">'/register'</span>, <span class="string">'/forget'</span>] <span class="comment">// 不重定向白名单</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="keyword">if</span> (store.getters.token.access_token) &#123;</span><br><span class="line">    <span class="comment">// 本地存储的有token信息，可直接登陆</span></span><br><span class="line">    <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) &#123;</span><br><span class="line">      next(&#123; <span class="attr">path</span>: <span class="string">'/'</span> &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 刷新token, 拉取最新用户信息  执行场景：1.刷新页面 2.每次自动登陆</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">JSON</span>.stringify(store.getters.user) === <span class="string">'&#123;&#125;'</span>) &#123;</span><br><span class="line">        store.dispatch(<span class="string">'RefreshToken'</span>, store.getters.token.refresh_token).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          store.dispatch(<span class="string">'GetInfo'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            next()</span><br><span class="line">          &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            store.dispatch(<span class="string">'LogOut'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          store.dispatch(<span class="string">'LogOut'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        next()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (whiteList.indexOf(to.path) !== <span class="number">-1</span>) &#123;</span><br><span class="line">      next()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.afterEach(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  NProgress.done() <span class="comment">// 结束Progress</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+                      
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/12/07/Vue 使用nprogress&路由拦截/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
+    <article id="post-vue中使用qrcode生成二维码" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/07/vue中使用qrcode生成二维码/">vue中使用qrcode生成二维码</a>
+    </h1>
+  
+
+          
+            <a href="/2018/12/07/vue中使用qrcode生成二维码/" class="archive-article-date">
+  	<time datetime="2018-12-07T09:26:00.750Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
+</a>
+
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <p>简单介绍vue生成二维码<br>
+              
+                  
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/12/07/vue中使用qrcode生成二维码/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
+    <article id="post-深拷贝与浅拷贝" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+        <div class="article-entry" itemprop="articleBody">
+          
+                    <h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepClone = <span class="function">(<span class="params">obj</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> Json.parse(Json.stringify()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/weixin_37719279/article/details/81240658" target="_blank" rel="noopener">读懂深浅拷贝</a></p>
+
+                      
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/12/07/深拷贝与浅拷贝/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
+    <article id="post-Thing.js学习之 数据对接" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/07/Thing.js学习之 数据对接/">数据对接</a>
+    </h1>
+  
+
+          
+            <a href="/2018/12/07/Thing.js学习之 数据对接/" class="archive-article-date">
+  	<time datetime="2018-12-07T09:25:52.531Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
+</a>
+
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <p>数据对接跟平常使用的数据对接方式相同，ajax请求和websocket连接<br>
+              
+                  
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Thing.js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/12/07/Thing.js学习之 数据对接/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
+    <article id="post-Thing.js 学习之 App对象" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+        <div class="article-entry" itemprop="articleBody">
+          
+                    <p>Thing.js 之 创建App对象</p>
+<h3 id="创建App"><a href="#创建App" class="headerlink" title="创建App"></a>创建App</h3><p>1.直接new 一个 app<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 创建App的方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> THING.App(&#123;</span><br><span class="line">  url: <span class="string">'园区地址'</span>,</span><br><span class="line">  complete: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建完成,园区Id:'</span> + <span class="keyword">this</span>.id)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>2.使用create<br>使用app.create创建，但该方法会导致初始化的时候 ，摄像机的视角处在[0, 0, 0]的位置，并且整个场景被放大到最大值，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 使用create</span></span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> THING.App()</span><br><span class="line"><span class="keyword">let</span> obj = app.create(&#123;</span><br><span class="line">  type: <span class="string">'Campus'</span>,</span><br><span class="line">  url: <span class="string">'园区地址'</span>,</span><br><span class="line">  complete: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建完成,园区Id:'</span> + <span class="keyword">this</span>.id)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="App对象的属性"><a href="#App对象的属性" class="headerlink" title="App对象的属性"></a>App对象的属性</h3><p><a href="http://www.thingjs.com/guide/?m=api#THING.App.html" target="_blank" rel="noopener">官方教程链接</a><br>参数 | 类型 | 备注<br>—|—|—<br>url    | String | 初始场景资源路径<br>complete | function | 初始化完成函数回调<br>success | function | 场景资源加载成功回调<br>error | function | 场景资源加载失败回调<br>progress | function | 场景资源加载进度回调<br>background | Number/String | 背景颜色/ 图片<br>skyBox | String    | 天空盒资源名称分别’BlueSky’,’MilkyWay’,’Night’,’SunCloud’<br>isMobileDevice | Boolean | 判断是否是移动端设备</p>
+<h3 id="App对象的方法"><a href="#App对象的方法" class="headerlink" title="App对象的方法"></a>App对象的方法</h3><p><a href="http://www.thingjs.com/guide/?m=api#THING.App.html" target="_blank" rel="noopener">官方教程</a>  </p>
+<p><strong>create(type, name, url, position, complete)</strong><br>参数 | 类型 | 备注<br>—|—|—<br>type | String | 物体类型<br>name | String | 物体名称<br>url | String | 物体模型链接<br>position | Array | 物体生成位置<br>complete| function | 物体生成后的回调</p>
+<p><strong>on(eventType, selector, userData, callback, tag?, priority)</strong><br>参数 | 类型 | 备注<br>—|—|—<br>ventType | String | 事件名称<br>selector | String | 物体类型选择信息<br>userData | Object | 事件绑定自定义数据, 如果是 Function 类型，也表示回调函数参数<br>callback | function     | 事件触发的回调函数<br>tag? | String | 事件名字标记<br>priority | Number | ? 优先级，数值越大优先级越高</p>
+
+                      
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/12/07/Thing.js 学习之 App对象/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
+    <article id="post-vue自定义指令实现 水波点击效果 (1)" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/07/vue自定义指令实现 水波点击效果 (1)/">vue自定义指令实现 水波点击效果</a>
+    </h1>
+  
+
+          
+            <a href="/2018/12/07/vue自定义指令实现 水波点击效果 (1)/" class="archive-article-date">
+  	<time datetime="2018-12-07T09:25:41.892Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
+</a>
+
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <p>自定义指令实现点击水波蔓延效果<br>
+              
+                  
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/12/07/vue自定义指令实现 水波点击效果 (1)/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
+    <article id="post-vue自定义指令实现 水波点击效果" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/07/vue自定义指令实现 水波点击效果/">vue自定义指令实现 水波点击效果</a>
+    </h1>
+  
+
+          
+            <a href="/2018/12/07/vue自定义指令实现 水波点击效果/" class="archive-article-date">
+  	<time datetime="2018-12-07T09:24:57.975Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
+</a>
+
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+            <p>自定义指令实现点击水波蔓延效果<br>
+              
+                  
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2018/12/07/vue自定义指令实现 水波点击效果/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
     <article id="post-导出列表" class="article article-type-post  article-index"
   itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -309,601 +854,9 @@ var _hmt = _hmt || [];
                                 </script>
 
       
-    <article id="post-基于Vue2.0的后台管理系统之权限控制(1)" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/31/基于Vue2.0的后台管理系统之权限控制(1)/">基于Vue2.0的后台管理系统之权限控制</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/31/基于Vue2.0的后台管理系统之权限控制(1)/" class="archive-article-date">
-  	<time datetime="2018-08-31T09:47:17.214Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p>动态路由、页面级别、按钮级别的权限控制<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/31/基于Vue2.0的后台管理系统之权限控制(1)/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-权限控制之权限表(1)" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/31/权限控制之权限表(1)/">权限控制之权限表</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/31/权限控制之权限表(1)/" class="archive-article-date">
-  	<time datetime="2018-08-31T09:47:17.213Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p>权限表的获取<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/31/权限控制之权限表(1)/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-按钮级权限控制方案-自定义指令v-auth(1)" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/31/按钮级权限控制方案-自定义指令v-auth(1)/">按钮级权限控制方案-自定义指令v-auth</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/31/按钮级权限控制方案-自定义指令v-auth(1)/" class="archive-article-date">
-  	<time datetime="2018-08-31T09:47:17.210Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p>通过自定义指令控制页面里面部分内容的权限<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/31/按钮级权限控制方案-自定义指令v-auth(1)/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-页面级权限控制方案-动态路由(1)" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/31/页面级权限控制方案-动态路由(1)/">页面级权限控制方案-动态路由</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/31/页面级权限控制方案-动态路由(1)/" class="archive-article-date">
-  	<time datetime="2018-08-31T09:47:17.205Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p>通过动态路由控制页面级权限，不同权限的用户访问路由不一样<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/31/页面级权限控制方案-动态路由(1)/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-rem.js" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/31/rem.js/">rem.js</a>
-    </h1>
-  
-
-          
-            <a href="/2018/05/31/rem.js/" class="archive-article-date">
-  	<time datetime="2018-05-31T02:20:34.093Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-31</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p> rem单位在各种屏幕上的适配代码<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/05/31/rem.js/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-js比较版本号大小" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/31/js比较版本号大小/">js比较版本号大小</a>
-    </h1>
-  
-
-          
-            <a href="/2018/05/31/js比较版本号大小/" class="archive-article-date">
-  	<time datetime="2018-05-31T02:20:16.400Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-31</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p>由于版本号是两个小数点不能直接比较，直接比较会出错（偶尔不对）。<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/05/31/js比较版本号大小/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-解决安卓返回键 路由切换异常的问题" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/27/解决安卓返回键 路由切换异常的问题/">解决安卓返回键路由切换异常的问题</a>
-    </h1>
-  
-
-          
-            <a href="/2018/04/27/解决安卓返回键 路由切换异常的问题/" class="archive-article-date">
-  	<time datetime="2018-04-27T08:57:01.143Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p>使用$router.push()跳转路由.安装返回键返回路径问题<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工作</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/04/27/解决安卓返回键 路由切换异常的问题/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-截流函数" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/27/截流函数/">截流函数</a>
-    </h1>
-  
-
-          
-            <a href="/2018/04/27/截流函数/" class="archive-article-date">
-  	<time datetime="2018-04-27T08:56:46.921Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p>避免多次触发<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/04/27/截流函数/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
         
           <nav id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
           </nav>
           
             
@@ -2026,11 +1979,15 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2042,7 +1999,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">Thing.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2066,15 +2023,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2082,11 +2035,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">移动端App</a>
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">移动端App</a>
               </li>
              
               <li class="article-tag-list-item">
