@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Cf-Blog</title>
+  <title>Thing.js 之 创建App对象 | Cf-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Thing.js 之 创建App对象 创建App1.直接new 一个 app123456789// 创建App的方法var app = new THING.App(&amp;#123;  url: &apos;园区地址&apos;,  complete: () =&amp;gt; &amp;#123;    console.log(&apos;创建完成,园区Id:&apos; + this.id)  &amp;#125;&amp;#125;) 2.使用create使用app.">
+  <meta name="description" content="介绍ThingJs中创建对象的常用方法">
+<meta name="keywords" content="Thingjs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cf-Blog">
+<meta property="og:title" content="Thing.js 之 创建App对象">
 <meta property="og:url" content="http://yoursite.com/2018/12/07/Thing.js 学习之 App对象/index.html">
 <meta property="og:site_name" content="Cf-Blog">
-<meta property="og:description" content="Thing.js 之 创建App对象 创建App1.直接new 一个 app123456789// 创建App的方法var app = new THING.App(&amp;#123;  url: &apos;园区地址&apos;,  complete: () =&amp;gt; &amp;#123;    console.log(&apos;创建完成,园区Id:&apos; + this.id)  &amp;#125;&amp;#125;) 2.使用create使用app.">
+<meta property="og:description" content="介绍ThingJs中创建对象的常用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-07T09:25:49.586Z">
+<meta property="og:updated_time" content="2018-12-07T09:30:56.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cf-Blog">
-<meta name="twitter:description" content="Thing.js 之 创建App对象 创建App1.直接new 一个 app123456789// 创建App的方法var app = new THING.App(&amp;#123;  url: &apos;园区地址&apos;,  complete: () =&amp;gt; &amp;#123;    console.log(&apos;创建完成,园区Id:&apos; + this.id)  &amp;#125;&amp;#125;) 2.使用create使用app.">
+<meta name="twitter:title" content="Thing.js 之 创建App对象">
+<meta name="twitter:description" content="介绍ThingJs中创建对象的常用方法">
   
     <link rel="alternative" href="/atom.xml" title="Cf-Blog" type="application/atom+xml">
   
@@ -167,13 +168,29 @@ var _hmt = _hmt || [];
   itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Thing.js 之 创建App对象
+    </h1>
+  
+
+          
+            <a href="/2018/12/07/Thing.js 学习之 App对象/" class="archive-article-date">
+  	<time datetime="2018-12-07T09:25:49.247Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
+</a>
+
+              
+      </header>
+      
         <div class="article-entry" itemprop="articleBody">
           
-                    <p>Thing.js 之 创建App对象</p>
+                    <p>介绍ThingJs中创建对象的常用方法<br><a id="more"></a></p>
 <h3 id="创建App"><a href="#创建App" class="headerlink" title="创建App"></a>创建App</h3><p>1.直接new 一个 app<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 创建App的方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> THING.App(&#123;</span><br><span class="line">  url: <span class="string">'园区地址'</span>,</span><br><span class="line">  complete: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建完成,园区Id:'</span> + <span class="keyword">this</span>.id)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>2.使用create<br>使用app.create创建，但该方法会导致初始化的时候 ，摄像机的视角处在[0, 0, 0]的位置，并且整个场景被放大到最大值，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 使用create</span></span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> THING.App()</span><br><span class="line"><span class="keyword">let</span> obj = app.create(&#123;</span><br><span class="line">  type: <span class="string">'Campus'</span>,</span><br><span class="line">  url: <span class="string">'园区地址'</span>,</span><br><span class="line">  complete: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'创建完成,园区Id:'</span> + <span class="keyword">this</span>.id)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <h3 id="App对象的属性"><a href="#App对象的属性" class="headerlink" title="App对象的属性"></a>App对象的属性</h3><p><a href="http://www.thingjs.com/guide/?m=api#THING.App.html" target="_blank" rel="noopener">官方教程链接</a><br>参数 | 类型 | 备注<br>—|—|—<br>url    | String | 初始场景资源路径<br>complete | function | 初始化完成函数回调<br>success | function | 场景资源加载成功回调<br>error | function | 场景资源加载失败回调<br>progress | function | 场景资源加载进度回调<br>background | Number/String | 背景颜色/ 图片<br>skyBox | String    | 天空盒资源名称分别’BlueSky’,’MilkyWay’,’Night’,’SunCloud’<br>isMobileDevice | Boolean | 判断是否是移动端设备</p>
-<h3 id="App对象的方法"><a href="#App对象的方法" class="headerlink" title="App对象的方法"></a>App对象的方法</h3><p><a href="http://www.thingjs.com/guide/?m=api#THING.App.html" target="_blank" rel="noopener">官方教程</a>  </p>
+<h3 id="App对象的方法"><a href="#App对象的方法" class="headerlink" title="App对象的方法"></a>App对象的方法</h3><p><a href="http://www.thingjs.com/guide/?m=api#THING.App.html" target="_blank" rel="noopener">官方教程</a></p>
 <p><strong>create(type, name, url, position, complete)</strong><br>参数 | 类型 | 备注<br>—|—|—<br>type | String | 物体类型<br>name | String | 物体名称<br>url | String | 物体模型链接<br>position | Array | 物体生成位置<br>complete| function | 物体生成后的回调</p>
 <p><strong>on(eventType, selector, userData, callback, tag?, priority)</strong><br>参数 | 类型 | 备注<br>—|—|—<br>ventType | String | 事件名称<br>selector | String | 物体类型选择信息<br>userData | Object | 事件绑定自定义数据, 如果是 Function 类型，也表示回调函数参数<br>callback | function     | 事件触发的回调函数<br>tag? | String | 事件名字标记<br>priority | Number | ? 优先级，数值越大优先级越高</p>
 
@@ -184,6 +201,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
           
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Thingjs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
             
 
               
@@ -273,7 +301,7 @@ var _hmt = _hmt || [];
               
                 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Thing.js 学习之 App对象" data-title="" data-url="http://yoursite.com/2018/12/07/Thing.js 学习之 App对象/"></div>
+	<div class="ds-thread" data-thread-key="Thing.js 学习之 App对象" data-title="Thing.js 之 创建App对象" data-url="http://yoursite.com/2018/12/07/Thing.js 学习之 App对象/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -1421,7 +1449,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1429,15 +1457,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">h5</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">h5</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thingjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1453,11 +1485,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+                <a href="javascript:void(0)" class="js-tag color3">jq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jq</a>
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1473,15 +1505,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vsc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+                <a href="javascript:void(0)" class="js-tag color4">vsc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1489,11 +1517,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
             
             <div class="clearfix"></div>

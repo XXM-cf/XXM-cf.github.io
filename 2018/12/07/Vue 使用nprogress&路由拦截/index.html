@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Vue 使用nprogress&amp;路由拦截 | Cf-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849import router from &apos;@/router&apos;import store from &apos;@/store&apos;import NProgress from &apos;nprogress&apos; // Progress 进度条import">
+  <meta name="description" content="vue项目中的进度条使用以及路由拦截相关">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 使用nprogress&amp;路由拦截">
 <meta property="og:url" content="http://yoursite.com/2018/12/07/Vue 使用nprogress&路由拦截/index.html">
 <meta property="og:site_name" content="Cf-Blog">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849import router from &apos;@/router&apos;import store from &apos;@/store&apos;import NProgress from &apos;nprogress&apos; // Progress 进度条import">
+<meta property="og:description" content="vue项目中的进度条使用以及路由拦截相关">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-07T09:26:04.710Z">
+<meta property="og:updated_time" content="2018-12-07T09:33:18.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 使用nprogress&amp;路由拦截">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849import router from &apos;@/router&apos;import store from &apos;@/store&apos;import NProgress from &apos;nprogress&apos; // Progress 进度条import">
+<meta name="twitter:description" content="vue项目中的进度条使用以及路由拦截相关">
   
     <link rel="alternative" href="/atom.xml" title="Cf-Blog" type="application/atom+xml">
   
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'@/router'</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'@/store'</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">'nprogress'</span> <span class="comment">// Progress 进度条</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'nprogress/nprogress.css'</span><span class="comment">// Progress 进度条样式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单配置</span></span><br><span class="line">NProgress.configure(&#123; <span class="attr">color</span>: <span class="string">'#f06'</span>, <span class="attr">easing</span>: <span class="string">'ease'</span>, <span class="attr">speed</span>: <span class="number">500</span>, <span class="attr">showSpinner</span>: <span class="literal">false</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> whiteList = [<span class="string">'/login'</span>, <span class="string">'/register'</span>, <span class="string">'/forget'</span>] <span class="comment">// 不重定向白名单</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="keyword">if</span> (store.getters.token.access_token) &#123;</span><br><span class="line">    <span class="comment">// 本地存储的有token信息，可直接登陆</span></span><br><span class="line">    <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) &#123;</span><br><span class="line">      next(&#123; <span class="attr">path</span>: <span class="string">'/'</span> &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 刷新token, 拉取最新用户信息  执行场景：1.刷新页面 2.每次自动登陆</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">JSON</span>.stringify(store.getters.user) === <span class="string">'&#123;&#125;'</span>) &#123;</span><br><span class="line">        store.dispatch(<span class="string">'RefreshToken'</span>, store.getters.token.refresh_token).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          store.dispatch(<span class="string">'GetInfo'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            next()</span><br><span class="line">          &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            store.dispatch(<span class="string">'LogOut'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          store.dispatch(<span class="string">'LogOut'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        next()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (whiteList.indexOf(to.path) !== <span class="number">-1</span>) &#123;</span><br><span class="line">      next()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.afterEach(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  NProgress.done() <span class="comment">// 结束Progress</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+                    <p>vue项目中的进度条使用以及路由拦截相关<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'@/router'</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'@/store'</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">'nprogress'</span> <span class="comment">// Progress 进度条</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'nprogress/nprogress.css'</span><span class="comment">// Progress 进度条样式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 简单配置</span></span><br><span class="line">NProgress.configure(&#123; <span class="attr">color</span>: <span class="string">'#f06'</span>, <span class="attr">easing</span>: <span class="string">'ease'</span>, <span class="attr">speed</span>: <span class="number">500</span>, <span class="attr">showSpinner</span>: <span class="literal">false</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> whiteList = [<span class="string">'/login'</span>, <span class="string">'/register'</span>, <span class="string">'/forget'</span>] <span class="comment">// 不重定向白名单</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="keyword">if</span> (store.getters.token.access_token) &#123;</span><br><span class="line">    <span class="comment">// 本地存储的有token信息，可直接登陆</span></span><br><span class="line">    <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) &#123;</span><br><span class="line">      next(&#123; <span class="attr">path</span>: <span class="string">'/'</span> &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 刷新token, 拉取最新用户信息  执行场景：1.刷新页面 2.每次自动登陆</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">JSON</span>.stringify(store.getters.user) === <span class="string">'&#123;&#125;'</span>) &#123;</span><br><span class="line">        store.dispatch(<span class="string">'RefreshToken'</span>, store.getters.token.refresh_token).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          store.dispatch(<span class="string">'GetInfo'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            next()</span><br><span class="line">          &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            store.dispatch(<span class="string">'LogOut'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          store.dispatch(<span class="string">'LogOut'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        next()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (whiteList.indexOf(to.path) !== <span class="number">-1</span>) &#123;</span><br><span class="line">      next()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">      NProgress.done()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.afterEach(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  NProgress.done() <span class="comment">// 结束Progress</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 
                       
 
@@ -1443,7 +1443,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1451,15 +1451,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">h5</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">h5</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thingjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1475,11 +1479,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+                <a href="javascript:void(0)" class="js-tag color3">jq</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jq</a>
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1495,15 +1499,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vsc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+                <a href="javascript:void(0)" class="js-tag color4">vsc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1511,11 +1511,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
             
             <div class="clearfix"></div>
