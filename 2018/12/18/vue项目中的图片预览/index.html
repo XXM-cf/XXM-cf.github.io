@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文本框输入效果总结 | Cf-Blog</title>
+  <title>vue项目中的图片预览 | Cf-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文本框输入效果 简单的罗列了几个文本框输入后的效果;话不多说，直接上代码： 1、选中去除文本框文字，离开后显示原有文字：">
-<meta name="keywords" content="html">
+  <meta name="description" content="最近项目中需要是使用图片预览，推荐连个比较顺手的插件">
+<meta name="keywords" content="vur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文本框输入效果总结">
-<meta property="og:url" content="http://yoursite.com/2018/03/14/文本框输入效果/index.html">
+<meta property="og:title" content="vue项目中的图片预览">
+<meta property="og:url" content="http://yoursite.com/2018/12/18/vue项目中的图片预览/index.html">
 <meta property="og:site_name" content="Cf-Blog">
-<meta property="og:description" content="文本框输入效果 简单的罗列了几个文本框输入后的效果;话不多说，直接上代码： 1、选中去除文本框文字，离开后显示原有文字：">
+<meta property="og:description" content="最近项目中需要是使用图片预览，推荐连个比较顺手的插件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-23T03:30:51.394Z">
+<meta property="og:updated_time" content="2018-12-18T11:44:47.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文本框输入效果总结">
-<meta name="twitter:description" content="文本框输入效果 简单的罗列了几个文本框输入后的效果;话不多说，直接上代码： 1、选中去除文本框文字，离开后显示原有文字：">
+<meta name="twitter:title" content="vue项目中的图片预览">
+<meta name="twitter:description" content="最近项目中需要是使用图片预览，推荐连个比较顺手的插件">
   
     <link rel="alternative" href="/atom.xml" title="Cf-Blog" type="application/atom+xml">
   
@@ -164,7 +164,7 @@ var _hmt = _hmt || [];
                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-文本框输入效果" class="article article-type-post "
+                <article id="post-vue项目中的图片预览" class="article article-type-post "
   itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,13 +172,13 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      文本框输入效果总结
+      vue项目中的图片预览
     </h1>
   
 
           
-            <a href="/2018/03/14/文本框输入效果/" class="archive-article-date">
-  	<time datetime="2018-03-14T06:51:44.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
+            <a href="/2018/12/18/vue项目中的图片预览/" class="archive-article-date">
+  	<time datetime="2018-12-18T11:44:47.102Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-18</time>
 </a>
 
               
@@ -186,29 +186,20 @@ var _hmt = _hmt || [];
       
         <div class="article-entry" itemprop="articleBody">
           
-                    <h1 id="文本框输入效果"><a href="#文本框输入效果" class="headerlink" title="文本框输入效果"></a>文本框输入效果</h1><hr>
-<p>简单的罗列了几个文本框输入后的效果;话不多说，直接上代码：</p>
-<p>1、选中去除文本框文字，离开后显示原有文字：</p>
-<a id="more"></a>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"key"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"key"</span> <span class="attr">value</span>=<span class="string">"关键词"</span> <span class="attr">size</span>=<span class="string">"30"</span> <span class="attr">onmouseover</span>=<span class="string">this.focus();this.select();</span> <span class="attr">onclick</span>=<span class="string">"if(value==defaultValue)&#123;value='';this.style.color='#000'&#125;"</span> <span class="attr">onBlur</span>=<span class="string">"if(!value)&#123;value=defaultValue;this.style.color='#999'&#125;"</span> <span class="attr">style</span>=<span class="string">"color:#999"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p> 2、选中后方可编辑：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"tpbox"</span> <span class="attr">value</span>=<span class="string">"1"</span> <span class="attr">id</span>=<span class="string">"hydb1"</span>&gt;</span>选中这边编辑</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"txtNo"</span> <span class="attr">size</span>=<span class="string">"30"</span> <span class="attr">value</span>=<span class="string">"选中前面的选项方可编辑"</span> <span class="attr">edit</span>()&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">function edit(val) &#123;</span><br><span class="line">    if (val) &#123;</span><br><span class="line">        C.disabled = false;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        document.getElementById(&quot;hydb1&quot;).disabled = true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>3、点击链接后方可编辑：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">"username.readOnly=false;alert('你好，欢迎使用！')"</span>&gt;</span>先点击我哦！<span class="tag">&lt;/<span class="name">a</span>&gt;</span> 你的姓名：</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"--请输入--"</span> <span class="attr">size</span>=<span class="string">"30"</span> <span class="attr">readOnly</span>&gt;</span> <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>4、输入框从中间输入：从中间输入：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text "</span> <span class="attr">name</span>=<span class="string">"mid "</span> <span class="attr">style</span>=<span class="string">"text-align:center; "</span>&gt;</span> <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>6、输入框只能输入数字（用的是正则表达式）：你 的年龄： </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onkeyup</span>=<span class="string">"value=value.replace(/[^\d]/g, '') "</span> <span class="attr">onbeforepaste</span>=<span class="string">"clipboardData.setData( 'text',clipboardData.getData( 'text').replace(/[^\d]/g, '')) "</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>7、输入框只能输入中文（用的是正则表达式）：你的中文名： <br></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onkeyup</span>=<span class="string">"value=value.replace(/[ -~]/g, '') "</span> <span class="attr">onkeydown</span>=<span class="string">"if(event.keyCode==13)event.keyCode=9 "</span>&gt;</span> <span class="tag">&lt;</span></span><br></pre></td></tr></table></figure>
-<p>8、只能输入英文和数字（用的是正则表达式）： 你 的昵称： </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onkeyup</span>=<span class="string">"value=value.replace(/[\W]/g, '') "</span> <span class="attr">onbeforepaste</span>=<span class="string">"clipboardData.setData( 'text',clipboardData.getData( 'text').replace(/[^\d]/g, '')) "</span> <span class="attr">onkeydown</span>=<span class="string">"if(event.keyCode==13)event.keyCode=9 "</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>9、输入框不能编辑，但表单可以获得输入框内的值：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text "</span> <span class="attr">value</span>=<span class="string">"afreon "</span> <span class="attr">onclick</span>=<span class="string">"alert( '总和不能编辑！'); "</span> <span class="attr">onfocus</span>=<span class="string">"this.blur() "</span> /&gt;</span> <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text "</span> <span class="attr">value</span>=<span class="string">"afreon "</span> <span class="attr">onclick</span>=<span class="string">"alert(this.value); "</span> <span class="attr">readonly</span> /&gt;</span> <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">value</span>=<span class="string">"不可修改 "</span> <span class="attr">readonly</span>=<span class="string">"true "</span> <span class="attr">type</span>=<span class="string">"text "</span></span></span><br><span class="line"><span class="tag">/&gt;</span>//:字体颜色为黑体</span><br></pre></td></tr></table></figure>
-<p> 10、输入框不能编辑，并且表单不能获得输入框内的值<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">value</span>=<span class="string">"不可修改 "</span> <span class="attr">disabled</span>=<span class="string">"disabled "</span> <span class="attr">type</span>=<span class="string">"text "</span> /&gt;</span>//:字体颜色为灰体 <span class="tag">&lt;/<span class="name">br</span>&gt;</span>11、输入框禁止输入法： <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onpaste</span>=<span class="string">"return false "</span> <span class="attr">style</span>=<span class="string">"ime-mode:disabled "</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>以上代码部门引用<a href="http://www.cnblogs.com/apache-x/p/5368469.html" target="_blank" rel="noopener">这位大哥的博客</a></p>
-<h3 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新….."></a>持续更新…..</h3>
+                    <p>最近项目中需要是使用图片预览，推荐连个比较顺手的插件<br><a id="more"></a></p>
+<h3 id="vue-photo-preview"><a href="#vue-photo-preview" class="headerlink" title="vue-photo-preview"></a>vue-photo-preview</h3><ul>
+<li>基于photoswipe的vue图片预览插件  </li>
+</ul>
+<p>使用方法<br>安装 引入之后，在img标签上加上preview分组属性，即可使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">npm install vue-photo-preview --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 引入</span></span><br><span class="line">import preview from <span class="string">'vue-photo-preview'</span></span><br><span class="line">import <span class="string">'vue-photo-preview/dist/skin.css'</span></span><br><span class="line">Vue.use(preview)</span><br><span class="line">//或者 </span><br><span class="line">//var option=&#123;....&#125; option配置请查看 http://photoswipe.com/documentation/options.html</span><br><span class="line">//Vue.use(preview,option)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># html</span><br><span class="line">//在img标签添加preview属性 preview值相同即表示为同一组</span><br><span class="line">&lt;img src=&quot;xxx.jpg&quot; preview=&quot;0&quot; preview-text=&quot;描述文字&quot;&gt;</span><br><span class="line"></span><br><span class="line">//分组</span><br><span class="line">&lt;img src=&quot;xxx.jpg&quot; preview=&quot;1&quot; preview-text=&quot;描述文字&quot;&gt;</span><br><span class="line">&lt;img src=&quot;xxx.jpg&quot; preview=&quot;1&quot; preview-text=&quot;描述文字&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;xxx.jpg&quot; preview=&quot;2&quot; preview-text=&quot;描述文字&quot;&gt;</span><br><span class="line">&lt;img src=&quot;xxx.jpg&quot; preview=&quot;2&quot; preview-text=&quot;描述文字&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="vant-的ImagePreview"><a href="#vant-的ImagePreview" class="headerlink" title="vant 的ImagePreview"></a>vant 的ImagePreview</h3><p><a href="https://youzan.github.io/vant/#/zh-CN/image-preview" target="_blank" rel="noopener">官方文档发链接</a></p>
+<ul>
+<li>ImagePreview和其他组件不同，不是通过HTML结构的方式来使用，而是通过函数调用的方式。使用前需要先引入它。  </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ImagePreview &#125; <span class="keyword">from</span> <span class="string">'vant'</span> <span class="comment">// 引入</span></span><br><span class="line"></span><br><span class="line">previewImg () &#123;</span><br><span class="line">    ImagePreview([</span><br><span class="line">      <span class="string">'https://img.yzcdn.cn/1.jpg'</span>, <span class="comment">// 图片地址</span></span><br><span class="line">      <span class="string">'https://img.yzcdn.cn/2.jpg'</span></span><br><span class="line">    ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
                       
 
                         
@@ -221,7 +212,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vur</a>
         		</li>
       		
 		</ul>
@@ -277,7 +268,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/14/文本框输入效果/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/12/18/vue项目中的图片预览/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +282,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/03/14/浅谈CSS布局/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          浅谈CSS布局
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/14/工欲善其事，必先利其器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">visual studio code 编辑器</div>
+    <a href="/2018/12/07/导出列表 (1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">web端常用的导出列表</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -316,7 +298,7 @@ var _hmt = _hmt || [];
               
                 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="文本框输入效果" data-title="文本框输入效果总结" data-url="http://yoursite.com/2018/03/14/文本框输入效果/"></div>
+	<div class="ds-thread" data-thread-key="vue项目中的图片预览" data-title="vue项目中的图片预览" data-url="http://yoursite.com/2018/12/18/vue项目中的图片预览/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -337,32 +319,6 @@ var _hmt = _hmt || [];
                       
                         <!-- 目录内容 -->
                         
-                          <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display: none;">
-                            <span class="btn-bg"></span>
-                            <span class="btn-text">文章导航</span>
-                          </p>
-                          <div id="toc-article" class="toc-article">
-                            <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                            <strong class="toc-title">文章目录</strong>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文本框输入效果"><span class="toc-number">1.</span> <span class="toc-text">文本框输入效果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#持续更新…"><span class="toc-number">1.0.1.</span> <span class="toc-text">持续更新…..</span></a></li></ol></li></ol></li></ol>
-                          </div>
-                          <script type="text/javascript">
-                            function showToc() {
-                              var toc_article = document.getElementById("toc-article");
-                              var show_toc_btn = document.getElementById("show-toc-btn");
-                              toc_article.setAttribute("style", "display:block");
-                              show_toc_btn.setAttribute("style", "display:none");
-                            };
-
-                            function showBtn() {
-                              var toc_article = document.getElementById("toc-article");
-                              var show_toc_btn = document.getElementById("show-toc-btn");
-                              toc_article.setAttribute("style", "display:none");
-                              show_toc_btn.setAttribute("style", "display:block");
-                            };
-
-                          </script>
-                          
                             <!-- 目录内容结束 -->
                             
 
