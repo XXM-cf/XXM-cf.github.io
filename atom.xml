@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-24T07:56:56.318Z</updated>
+  <updated>2019-01-08T02:36:24.445Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>换电脑不再烦恼，Settings sync插件同步VsCode设置</title>
+    <link href="http://yoursite.com/2019/01/08/%E6%8D%A2%E7%94%B5%E8%84%91%E4%B8%8D%E5%86%8D%E7%83%A6%E6%81%BC%EF%BC%8CSettings%20sync%E6%8F%92%E4%BB%B6%E5%90%8C%E6%AD%A5VsCode%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://yoursite.com/2019/01/08/换电脑不再烦恼，Settings sync插件同步VsCode设置/</id>
+    <published>2019-01-08T02:36:23.954Z</published>
+    <updated>2019-01-08T02:36:24.445Z</updated>
+    
+    <content type="html"><![CDATA[<p>重装vscode之后，之前的配置都不见了，装装好插件一上午就没了，还好有settings sync,一键同步配置，换电脑不再烦恼<br><a id="more"></a></p><h3 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h3><p>文案参考<a href="https://blog.csdn.net/small_trees/article/details/79185942" target="_blank" rel="noopener">树苗先生 </a></p><ul><li>1、Settings Sync是vscode中同步设置和安装插件的小工具，在扩展商店中搜索并安装它   <a href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync" target="_blank" rel="noopener">安装地址</a></li><li>2、登陆Github&gt;Your profile&gt; settings&gt;Developer settings&gt;personal access tokens&gt;generate new token，输入名称，勾选Gist，提交 </li><li>3、保存Github Access Token   </li><li>4、打开vscode，Ctrl+Shift+P打开命令框，输入sync，找到update/upload settings，输入Token，上传成功后会返回Gist ID，保存此Gist ID.   </li><li>5、若需在其他机器上DownLoad插件的话，同样，Ctrl+Shift+P打开命令框，输入sync，找到Download settings，会跳转到Github的Token编辑界面，点Edit，regenerate token，保存新生成的token，在vscode命令框中输入此Token，回车，再输入之前的Gist ID，即可同步插件和设置。  </li></ul><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul><li>生成Gist key</li></ul><p><img src="https://media.giphy.com/media/xT9IglKxSqs2Wdwq2c/source.gif" alt="image"></p><ul><li>上传配置  </li></ul><p><img src="https://media.giphy.com/media/xT9Iglsi3CS9noE8tW/source.gif" alt="image"></p><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Upload Key : Shift + Alt + U</span><br><span class="line"></span><br><span class="line">Download Key : Shift + Alt + D</span><br></pre></td></tr></table></figure><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul><li><p>上述步骤第步骤完成后，输区域会跳出一大段文本,复制GITHUB GIST的内容，在需要同步的另一台电脑上使用  </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GitHub Token: 4be15ad02b4c1c7d3048dc3aecaca97412145bd3****</span><br><span class="line">GitHub Gist: 47e6403f9f8bb04346a6b3cc1d3****</span><br><span class="line">GitHub Gist Type: Secret</span><br></pre></td></tr></table></figure></li><li><p>如果忘记了之前按的Token,在github上执行 Regenerate token，重新生成，然后再次执行上面的步即可</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;重装vscode之后，之前的配置都不见了，装装好插件一上午就没了，还好有settings sync,一键同步配置，换电脑不再烦恼&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="vscode插件" scheme="http://yoursite.com/tags/vscode%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>vue项目中的登录流程总结</title>
@@ -41,9 +61,9 @@
     <link href="http://yoursite.com/2018/12/24/ios%E4%B8%8B%E7%9A%84new%20Date%20()%E7%9A%84%E5%9D%91/"/>
     <id>http://yoursite.com/2018/12/24/ios下的new Date ()的坑/</id>
     <published>2018-12-24T07:56:51.036Z</published>
-    <updated>2018-12-24T07:56:51.370Z</updated>
+    <updated>2018-12-24T08:00:26.254Z</updated>
     
-    <content type="html"><![CDATA[<p>使用new Date()方法时  在ios该对象返回的是valid Date，这是为啥嘞？<br><a id="more"></a></p><p>以下代码在ios中可能会报错</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ar d = new Date(&quot;2018-08-11 12:00:00&quot;);</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">在IOS5以上版本（不包含IOS5）中的Safari浏览器能正确解释出Javascript中的 new Date(&apos;2018-10-21&apos;) 的日期对象  </span><br><span class="line"></span><br><span class="line">可以采用以下方法解决,或者使用 插件 dayjs</span><br></pre></td></tr></table></figure><p>var d = new Date(“2018-08-11 12:00:00”.replace(/-/g, “/“));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">格式化时间</span><br><span class="line">- 做数据统计的时候，云端返回的数据是以5分钟为最小单位的，为了匹配数据，获取当前时间的时候应该计算出距离按当前时间最近的5分钟的整数时间点</span><br><span class="line">- 思路: 时间戳对5分钟求余，再用当前时间 减去余数</span><br></pre></td></tr></table></figure></p><p>const getTimeRange5 = () =&gt; { // 获取<br>  let temp = 5 <em> 60 </em> 1000<br>  return Date.now() - Date.now() % temp<br>} // 将当前时间转换为5分钟的整数倍 2018-12-17 24:37 ==&gt; 2018-12-17 24:35<br><code>`</code></p>]]></content>
+    <content type="html"><![CDATA[<p>使用new Date()方法时  在ios该对象返回的是valid Date，这是为啥嘞？<br><a id="more"></a></p><p>以下代码在ios中可能会报错</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2018-08-11 12:00:00"</span>);</span><br></pre></td></tr></table></figure><p>在IOS5以上版本（不包含IOS5）中的Safari浏览器能正确解释出Javascript中的 new Date(‘2018-10-21’) 的日期对象</p><p>可以采用以下方法解决,或者使用 插件 dayjs<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2018-08-11 12:00:00"</span>.replace(<span class="regexp">/-/g</span>, <span class="string">"/"</span>));</span><br></pre></td></tr></table></figure></p><p>格式化时间</p><ul><li>做数据统计的时候，云端返回的数据是以5分钟为最小单位的，为了匹配数据，获取当前时间的时候应该计算出距离按当前时间最近的5分钟的整数时间点</li><li>思路: 时间戳对5分钟求余，再用当前时间 减去余数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getTimeRange5 = <span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="comment">// 获取</span></span><br><span class="line">  <span class="keyword">let</span> temp = <span class="number">5</span> * <span class="number">60</span> * <span class="number">1000</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Date</span>.now() - <span class="built_in">Date</span>.now() % temp</span><br><span class="line">&#125; <span class="comment">// 将当前时间转换为5分钟的整数倍 2018-12-17 24:37 ==&gt; 2018-12-17 24:35</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
     
     <summary type="html">
     
@@ -393,26 +413,6 @@
     
     
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决安卓返回键路由切换异常的问题</title>
-    <link href="http://yoursite.com/2018/04/27/%E8%A7%A3%E5%86%B3%E5%AE%89%E5%8D%93%E8%BF%94%E5%9B%9E%E9%94%AE%20%E8%B7%AF%E7%94%B1%E5%88%87%E6%8D%A2%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/04/27/解决安卓返回键 路由切换异常的问题/</id>
-    <published>2018-04-27T08:57:01.143Z</published>
-    <updated>2018-04-27T08:59:19.620Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用$router.push()跳转路由.安装返回键返回路径问题<br><a id="more"></a></p><p>使用$router.push()跳转路由，在安卓返回键中不能正常返回，可以自定义返回路径，按如下操作：</p><h3 id="state中定义两个状态"><a href="#state中定义两个状态" class="headerlink" title="state中定义两个状态"></a>state中定义两个状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">currentRouterName: &apos;&apos;, // 存放当前页面的路由</span><br><span class="line">routerHistory: &#123; // 存放路由跳转规则，键为当前页面路由名称，值为返回时要回到的页面路径</span><br><span class="line">timing: &apos;/&apos;,</span><br><span class="line">timing_weekday: &apos;/timing&apos;,</span><br><span class="line">timing_weekend: &apos;/timing&apos;,</span><br><span class="line">timing_settingWeekday: &apos;/timing-weekday&apos;,</span><br><span class="line">timing_settingWeekend: &apos;/timing-weekend&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="mutations-js中更改状态"><a href="#mutations-js中更改状态" class="headerlink" title="mutations.js中更改状态"></a>mutations.js中更改状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export const getRouter = (state, routerName) =&gt; &#123;</span><br><span class="line">  state.currentRouterName = routerName</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="App-vue-中设置路径"><a href="#App-vue-中设置路径" class="headerlink" title="App.vue 中设置路径"></a>App.vue 中设置路径</h3><p>如果页面中存在弹出层，返回键按下的时候应先关闭弹层,使用v-back指令，应添加v-if</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hk-pop(</span><br><span class="line">    v-model=&quot;settingPop&quot;</span><br><span class="line">    v-if=&quot;settingPop&quot;</span><br><span class="line">    v-back=&quot;settingPop&quot;</span><br><span class="line">    class=&quot;setting-pop&quot;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure><p>将app.vue作如下修改<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">...mapState([</span><br><span class="line">  <span class="string">'routerHistory'</span>,</span><br><span class="line">  <span class="string">'currentRouterName'</span></span><br><span class="line">])</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 安卓返回键点击</span></span><br><span class="line"><span class="keyword">this</span>.$hekr.on(<span class="string">'back'</span>, () =&gt; &#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.$back.length)</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.$back.length) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.$back.pop()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.$route.name === <span class="string">'home'</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.$hekr.close()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.$router.push(<span class="keyword">this</span>.routerHistory[<span class="keyword">this</span>.currentRouterName])</span><br><span class="line"><span class="comment">// this.$router.back()</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p><h3 id="页面挂载的时候，更改状态，获取当前页面的路由name"><a href="#页面挂载的时候，更改状态，获取当前页面的路由name" class="headerlink" title="页面挂载的时候，更改状态，获取当前页面的路由name"></a>页面挂载的时候，更改状态，获取当前页面的路由name</h3><p>可以直接传入当前页面的路由name，需要和state中的routerHistory对象的键对应，<br>也可以用 this.$router.history.current.name 获取路由名称，但是state中键值名称不能包括中划线，如果路由名称中存在中划线，需作一定转换。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> this.getRouter(&apos;timing_weekday&apos;) </span><br><span class="line">// this.getRouter(this.$router.history.current.name)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用$router.push()跳转路由.安装返回键返回路径问题&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="工作" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C/"/>
     
   </entry>
   
