@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 移动端 | Cf-Blog</title>
+  <title>永生APP开发总结 | Cf-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Cf-Blog">
-<meta property="og:url" content="http://yoursite.com/tags/移动端/index.html">
+  <meta name="description" content="断断续续开发了快一个月，完成了两款APP，简单的总结下，好记性不如烂笔头嘛">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="永生APP开发总结">
+<meta property="og:url" content="http://yoursite.com/2019/01/15/永生APP开发总结/index.html">
 <meta property="og:site_name" content="Cf-Blog">
+<meta property="og:description" content="断断续续开发了快一个月，完成了两款APP，简单的总结下，好记性不如烂笔头嘛">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-15T10:26:41.224Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cf-Blog">
+<meta name="twitter:title" content="永生APP开发总结">
+<meta name="twitter:description" content="断断续续开发了快一个月，完成了两款APP，简单的总结下，好记性不如烂笔头嘛">
   
     <link rel="alternative" href="/atom.xml" title="Cf-Blog" type="application/atom+xml">
   
@@ -159,45 +164,58 @@ var _hmt = _hmt || [];
                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                
+                <article id="post-永生APP开发总结" class="article article-type-post "
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      永生APP开发总结
+    </h1>
+  
+
+          
+            <a href="/2019/01/15/永生APP开发总结/" class="archive-article-date">
+  	<time datetime="2019-01-15T10:26:40.663Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
+</a>
+
               
-                
-                  
-                    
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+                    <p>断断续续开发了快一个月，完成了两款APP，简单的总结下，好记性不如烂笔头嘛<br><a id="more"></a></p>
+<h4 id="获取天气相关情况"><a href="#获取天气相关情况" class="headerlink" title="获取天气相关情况"></a>获取天气相关情况</h4><p> 通过定位得到当前位置，调用getWeather方法传入adCode，将获取到的天气相关信息保存到中，方便使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取天气情况，使用高德天气</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">getWeather (adcode) &#123; <span class="comment">// adcode为addressCode</span></span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">  AMap.plugin(<span class="string">'AMap.Weather'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">var</span> weather = <span class="keyword">new</span> AMap.Weather()</span><br><span class="line">    weather.getLive(adcode, (err, data) =&gt; &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err, data)</span><br><span class="line">      self.$store.dispatch(<span class="string">'SetWeathers'</span>, data) <span class="comment">// 保存到vuex中</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="绘制周边地图"><a href="#绘制周边地图" class="headerlink" title="绘制周边地图"></a>绘制周边地图</h4><ul>
+<li>点击查看周边地图<br>初始化滴哦图，以当前定位为地图中心，再次基础上绘制圆形区域标记</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">initMap () &#123;</span><br><span class="line">  <span class="keyword">this</span>.position = &#123; ...this.$route.query &#125;</span><br><span class="line">  <span class="keyword">let</span> lat = <span class="keyword">this</span>.position.lat || <span class="number">118.21</span></span><br><span class="line">  <span class="keyword">let</span> lng = <span class="keyword">this</span>.position.lng || <span class="number">120.30</span></span><br><span class="line">  <span class="keyword">var</span> map = <span class="keyword">new</span> AMap.Map(<span class="string">'aroundMap'</span>, &#123;</span><br><span class="line">    resizeEnable: <span class="literal">true</span>, <span class="comment">// </span></span><br><span class="line">    rotateEnable: <span class="literal">true</span>, <span class="comment">// 是否可旋转</span></span><br><span class="line">    zoom: <span class="number">14</span>,</span><br><span class="line">    expandZoomRange: <span class="literal">true</span>,</span><br><span class="line">    zooms: [<span class="number">3</span>, <span class="number">20</span>], <span class="comment">// 设置地图zoom级别</span></span><br><span class="line">    center: [lng, lat]</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">var</span> circle = <span class="keyword">new</span> AMap.Circle(&#123; <span class="comment">// 源泉覆盖物</span></span><br><span class="line">    center: <span class="keyword">new</span> AMap.LngLat(lng, lat), <span class="comment">// 圆心位置</span></span><br><span class="line">    radius: <span class="number">1000</span>, <span class="comment">// 半径</span></span><br><span class="line">    strokeColor: <span class="string">'#F33'</span>, <span class="comment">// 线颜色</span></span><br><span class="line">    strokeOpacity: <span class="number">0.5</span>, <span class="comment">// 线透明度</span></span><br><span class="line">    strokeWeight: <span class="number">1</span>, <span class="comment">// 线粗细度</span></span><br><span class="line">    fillColor: <span class="string">'#ee2200'</span>, <span class="comment">// 填充颜色</span></span><br><span class="line">    fillOpacity: <span class="number">0.2</span> <span class="comment">// 填充透明度</span></span><br><span class="line">  &#125;)</span><br><span class="line">  map.add(circle)</span><br><span class="line">  <span class="keyword">return</span> map</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="路径规划"><a href="#路径规划" class="headerlink" title="路径规划"></a>路径规划</h4><ul>
+<li>通过起点重点经纬度，规划驾车路线</li>
+</ul>
+<p><a href="https://lbs.amap.com/api/javascript-api/reference/route-search" target="_blank" rel="noopener">高德API-路径规划</a></p>
+<p>需要两个容器，id为navigatorMap的容器用来绘制地图，id为panel的容器用来绘制导航结果相关面板<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">initMap () &#123;</span><br><span class="line">  <span class="keyword">this</span>.toPosition = &#123; ...this.$route.query &#125;</span><br><span class="line">  <span class="keyword">let</span> fromLat = <span class="keyword">this</span>.positions.lat</span><br><span class="line">  <span class="keyword">let</span> fromLng = <span class="keyword">this</span>.positions.lng</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> toLat = <span class="keyword">this</span>.toPosition.lat</span><br><span class="line">  <span class="keyword">let</span> toLng = <span class="keyword">this</span>.toPosition.lng</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.positions.lng) &#123;</span><br><span class="line">    <span class="keyword">var</span> map = <span class="keyword">new</span> AMap.Map(<span class="string">'navigatorMap'</span>, &#123;</span><br><span class="line">      resizeEnable: <span class="literal">true</span>,</span><br><span class="line">      center: [fromLng, fromLat], <span class="comment">// 地图中心点</span></span><br><span class="line">      zoom: <span class="number">10</span> <span class="comment">// 地图显示的缩放级别</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">var</span> driving = <span class="keyword">new</span> AMap.Driving(&#123;</span><br><span class="line">      map: map,</span><br><span class="line">      panel: <span class="string">'panel'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    driving.search(</span><br><span class="line">      <span class="keyword">new</span> AMap.LngLat(fromLng, fromLat), <span class="comment">// 起点</span></span><br><span class="line">      <span class="comment">// new AMap.LngLat(116.427281, 39.903719), // 起点</span></span><br><span class="line">      <span class="keyword">new</span> AMap.LngLat(toLng, toLat), <span class="comment">// 终点</span></span><br><span class="line">      (status, result) =&gt; &#123;</span><br><span class="line">        <span class="comment">// result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult</span></span><br><span class="line">        <span class="keyword">if</span> (status === <span class="string">'complete'</span>) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'绘制驾车路线完成'</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.$toast(<span class="string">'路线规划失败'</span>)</span><br><span class="line">          <span class="built_in">console</span>.error(<span class="string">'获取驾车数据失败：'</span> + result)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.$toast(<span class="string">'定位失败，请检查设置'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="拨打电话"><a href="#拨打电话" class="headerlink" title="拨打电话"></a>拨打电话</h4><ul>
+<li>使用a标签的href，tel后面跟上制定的电话号码，即可实现</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.tel(:href=<span class="string">"`tel:$&#123;telePhone&#125;`"</span>)</span><br></pre></td></tr></table></figure>
+
                       
-                          
-                            <section class="archives-wrap">
-                              <div class="archive-year-wrap">
-                                <a href="/archives/2018" class="archive-year">
-                                  2018
-                                </a>
-                              </div>
-                              <div class="archives">
-                                
-                                  <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <div class="article-meta">
-        <a href="/2018/03/14/移动端事件介绍/" class="archive-article-date">
-  	<time datetime="2018-03-14T06:51:44.937Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
-</a>
 
-      </div>
+                        
+    </div>
+    <div class="article-info article-info-index">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/14/移动端事件介绍/">移动端事件介绍</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
           
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -205,61 +223,140 @@ var _hmt = _hmt || [];
 
             
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+              
 
-                                    
                   
                     
-                                  <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <div class="article-meta">
-        <a href="/2018/03/14/理解移动端click的300ms的延迟响应/" class="archive-article-date">
-  	<time datetime="2018-03-14T06:51:44.930Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
-</a>
-
-      </div>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/14/理解移动端click的300ms的延迟响应/">理解移动端click的300ms的延迟响应</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/01/15/永生APP开发总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                      
+                        <div class="clearfix"></div>
+    </div>
+    </div>
 </article>
 
-                                    
-                                      
-                              </div>
-                            </section>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/08/换电脑不再烦恼，Settings sync插件同步VsCode设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">换电脑不再烦恼，Settings sync插件同步VsCode设置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+    
+
+      
+
+            
+              
+                <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="永生APP开发总结" data-title="永生APP开发总结" data-url="http://yoursite.com/2019/01/15/永生APP开发总结/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"litten-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+                  
+                      
+                        <!-- 目录内容 -->
+                        
+                          <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display: none;">
+                            <span class="btn-bg"></span>
+                            <span class="btn-text">文章导航</span>
+                          </p>
+                          <div id="toc-article" class="toc-article">
+                            <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                            <strong class="toc-title">文章目录</strong>
+                            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取天气相关情况"><span class="toc-number">1.</span> <span class="toc-text">获取天气相关情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#绘制周边地图"><span class="toc-number">2.</span> <span class="toc-text">绘制周边地图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#路径规划"><span class="toc-number">3.</span> <span class="toc-text">路径规划</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#拨打电话"><span class="toc-number">4.</span> <span class="toc-text">拨打电话</span></a></li></ol>
+                          </div>
+                          <script type="text/javascript">
+                            function showToc() {
+                              var toc_article = document.getElementById("toc-article");
+                              var show_toc_btn = document.getElementById("show-toc-btn");
+                              toc_article.setAttribute("style", "display:block");
+                              show_toc_btn.setAttribute("style", "display:none");
+                            };
+
+                            function showBtn() {
+                              var toc_article = document.getElementById("toc-article");
+                              var show_toc_btn = document.getElementById("show-toc-btn");
+                              toc_article.setAttribute("style", "display:none");
+                              show_toc_btn.setAttribute("style", "display:block");
+                            };
+
+                          </script>
+                          
+                            <!-- 目录内容结束 -->
                             
 
-                              
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
 
-                                  
+                                </script>
 
               </div>
             </div>
@@ -281,9 +378,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
