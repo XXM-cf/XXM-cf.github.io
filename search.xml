@@ -4,6 +4,140 @@
   
     
     <entry>
+      <title><![CDATA[数据可视化学习（1） ---canvas]]></title>
+      <url>http://yoursite.com/2019/02/27/%E5%AD%A6%E4%B9%A0canvas/</url>
+      <content type="html"><![CDATA[<p>悠哉游哉，开始学习啦，本文是学习canvas过程中的一些记录<br><a id="more"></a></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.runoob.com/jsref/dom-obj-canvas.html" target="_blank" rel="noopener">菜鸟教程-canvas</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API" target="_blank" rel="noopener">MDN-canvas API</a></p>
+<h3 id="基本图形"><a href="#基本图形" class="headerlink" title="基本图形"></a>基本图形</h3><h4 id="长方形"><a href="#长方形" class="headerlink" title="长方形"></a>长方形</h4><ul>
+<li>fillRect(x, y, width, height) : 绘制一个填充的矩形</li>
+<li>strokeRect(x, y, width, height) : 绘制一个矩形的边框</li>
+<li>clearRect(x, y, width, height) : 清除指定矩形区域，让清除部分完全透明</li>
+</ul>
+<p>x和y是矩形左上角的坐标点，width是矩形宽度，height是矩形高度。</p>
+<p>参考资料 <a href="https://www.w3cplus.com/canvas/drawing-rectangular.html" target="_blank" rel="noopener">大漠-canvas绘制矩形</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绘制矩形</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>).getContext(<span class="string">'2d'</span>)</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ctx.rect(<span class="number">10</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">50</span>)</span><br><span class="line">    ctx.fill()</span><br><span class="line">  &#125;</span><br><span class="line">  draw()</span><br></pre></td></tr></table></figure></p>
+<p>以下代码可以实现鼠标拖动绘制矩形，修改绘制函数，可以实现绘制不同的图形<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myCanvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</span><br><span class="line"><span class="keyword">let</span> ctx = myCanvas.getContext(<span class="string">'2d'</span>)</span><br><span class="line"></span><br><span class="line">myCanvas.width = <span class="built_in">window</span>.innerWidth</span><br><span class="line">myCanvas.height = <span class="built_in">window</span>.innerHeight</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rect = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> drag = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">myCanvas.addEventListener(<span class="string">'mousedown'</span>, mouseDown, <span class="literal">false</span>)</span><br><span class="line">myCanvas.addEventListener(<span class="string">'mouseup'</span>, mouseUp, <span class="literal">false</span>)</span><br><span class="line">myCanvas.addEventListener(<span class="string">'mousemove'</span>, mouseMove, <span class="literal">false</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mouseDown</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  rect.startX = e.pageX - <span class="keyword">this</span>.offsetLeft</span><br><span class="line">  rect.startY = e.pageY - <span class="keyword">this</span>.offsetTop</span><br><span class="line">  drag = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mouseMove</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (drag) &#123;</span><br><span class="line">    rect.w = (e.pageX - <span class="keyword">this</span>.offsetLeft) - rect.startX</span><br><span class="line">    rect.h = (e.pageY - <span class="keyword">this</span>.offsetTop) - rect.startY</span><br><span class="line">    ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, myCanvas.width, myCanvas.height) <span class="comment">// 清除画布</span></span><br><span class="line">    drawRect(<span class="string">"fill"</span>) <span class="comment">// 绘图</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mouseUp</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  drag = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawRect</span>(<span class="params">style</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (style === <span class="string">"fill"</span>) &#123; <span class="comment">// 填充</span></span><br><span class="line">    ctx.fillRect(rect.startX, rect.startY, rect.w, rect.h)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (style === <span class="string">"stroke"</span>) &#123; <span class="comment">// 边框</span></span><br><span class="line">    ctx.strokeRect(rect.startX, rect.startY, rect.w, rect.h)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawScreen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ctx.lineWidth = <span class="number">10</span></span><br><span class="line">  ctx.fillStyle = <span class="string">"#f36"</span></span><br><span class="line">  ctx.strokeStyle = <span class="string">'#f36'</span></span><br><span class="line">  ctx.font = <span class="string">"24px Arial"</span></span><br><span class="line">  ctx.fillText(<span class="string">"拖动鼠标就可以绘制矩形"</span>, <span class="number">50</span>, <span class="number">50</span>)</span><br><span class="line">&#125;</span><br><span class="line">drawScreen()</span><br></pre></td></tr></table></figure></p>
+<h4 id="圆形、圆弧"><a href="#圆形、圆弧" class="headerlink" title="圆形、圆弧"></a>圆形、圆弧</h4><ul>
+<li>ctx.arc(x, y, radius, starAngle,endAngle, anticlockwise)<br>x : 圆心的 x 坐标<br>y：圆心的 y 坐标<br>radius ： 半径<br>starAngle ：开始角度<br>endAngle：结束角度<br>anticlockwise ：是否逆时针（true）为逆时针，(false)为顺时针</li>
+<li>ctx.arcTo(x1,yx,x2,y2,r)<br>在画布上创建介于两个切线之间的弧：</li>
+</ul>
+<h4 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h4><ul>
+<li>直线 lineTo(x,y)<br>绘制一条从当前位置到指定x以及y位置的直线</li>
+<li>moveTo(x,y)<br>将笔触移动到指定的坐标x以及y上</li>
+</ul>
+<p>canvas初始化或者beginPath()调用后，使用moveTo()函数设置起点<br>绘制笑脸<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ctx.beginPath();</span><br><span class="line">ctx.arc(<span class="number">75</span>,<span class="number">75</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">true</span>); <span class="comment">// 绘制</span></span><br><span class="line">ctx.moveTo(<span class="number">110</span>,<span class="number">75</span>);</span><br><span class="line">ctx.arc(<span class="number">75</span>,<span class="number">75</span>,<span class="number">35</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI,<span class="literal">false</span>);   <span class="comment">// 口(顺时针)</span></span><br><span class="line">ctx.moveTo(<span class="number">65</span>,<span class="number">65</span>);</span><br><span class="line">ctx.arc(<span class="number">60</span>,<span class="number">65</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">true</span>);  <span class="comment">// 左眼</span></span><br><span class="line">ctx.moveTo(<span class="number">95</span>,<span class="number">65</span>);</span><br><span class="line">ctx.arc(<span class="number">90</span>,<span class="number">65</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">true</span>);  <span class="comment">// 右眼</span></span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure></p>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><h4 id="颜色、样式、阴影"><a href="#颜色、样式、阴影" class="headerlink" title="颜色、样式、阴影"></a>颜色、样式、阴影</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fillStyle</td>
+<td>设置或返回用于填充绘画的颜色、渐变或模式  </td>
+</tr>
+<tr>
+<td>strokeStyle</td>
+<td>设置或返回用于笔触的颜色、渐变或模式。  </td>
+</tr>
+<tr>
+<td>shadowColor</td>
+<td>设置或返回用于阴影的颜色。  </td>
+</tr>
+<tr>
+<td>shadowBlur</td>
+<td>设置或返回用于阴影的模糊级别。  </td>
+</tr>
+<tr>
+<td>shadowOffsetX</td>
+<td>设置或返回阴影与形状的水平距离 。</td>
+</tr>
+<tr>
+<td>shadowOffsetY</td>
+<td>设置或返回阴影与形状的垂直距离。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h4><ul>
+<li>createLinearGradient(x1, y1, x2, y2)<br>createLinearGradient 方法接受 4 个参数，表示渐变的起点 (x1,y1) 与终点 (x2,y2)。</li>
+<li>createRadialGradient(x1, y1, r1, x2, y2, r2)<br>createRadialGradient 方法接受 6 个参数，前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2   </li>
+</ul>
+<p>示例代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 线性渐变</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> gradient = ctx.createLinearGradient(<span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>, <span class="number">0</span>)</span><br><span class="line"> gradient.addColorStop(<span class="number">0</span>, <span class="string">"#f06"</span>);</span><br><span class="line"> gradient.addColorStop(<span class="number">1</span>, <span class="string">"#6cf"</span>)</span><br><span class="line"> ctx.fillStyle = gradient       <span class="comment">//设置fillStyle为当前的渐变对象</span></span><br><span class="line"> ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 径向渐变</span></span><br><span class="line"> <span class="keyword">let</span> gradient1 = ctx.createRadialGradient(<span class="number">100</span>, <span class="number">100</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line"> gradient1.addColorStop(<span class="number">0</span>, <span class="string">'#EE82EE'</span>)</span><br><span class="line"> gradient1.addColorStop(<span class="number">1</span>, <span class="string">'#FF00FF'</span>)</span><br><span class="line"> ctx.fillStyle = gradient1</span><br><span class="line"> ctx.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>)</span><br><span class="line"> ctx.fill()</span><br></pre></td></tr></table></figure></p>
+<p>径向渐变原理图<br><img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4055351684,3400036516&amp;fm=173&amp;s=0550653287B548230E55F9DB0000D0B1&amp;w=640&amp;h=203&amp;img.JPEG" alt="image"></p>
+<h3 id="缩放、旋转、平移"><a href="#缩放、旋转、平移" class="headerlink" title="缩放、旋转、平移"></a>缩放、旋转、平移</h3><ul>
+<li><p>缩放 scale(x,y)<br>x ：x坐标轴按 x 比例缩放<br>y ：x坐标轴按 y 比例缩放</p>
+</li>
+<li><p>旋转 rotate(angle)<br>angle ：坐标轴旋转x角度（角度变化模型和画圆的模型一样）</p>
+</li>
+<li><p>平移 translate(x,y)<br>x ：坐标原点向x轴方向平移x<br>y ：坐标原点向y轴方向平移y</p>
+</li>
+</ul>
+<p>平移，缩放，旋转先后顺序不同，坐标轴的变化图，图片来源于网络<br><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=656556240,319451552&amp;fm=173&amp;s=40F63D72490F554F0AE9F1CA0000A0B1&amp;w=640&amp;h=519&amp;img.JPEG" alt="image"></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 数据可视化 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[解决canvas绘图出现锯齿的问题]]></title>
+      <url>http://yoursite.com/2019/02/27/%E8%A7%A3%E5%86%B3canvas%E7%BB%98%E5%9B%BE%E5%87%BA%E7%8E%B0%E9%94%AF%E9%BD%BF%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>使用canvas动态绘制图形时，边缘处会被拉伸，模糊，甚至出现锯齿状，下面几行代码用于解决此问题<br><a id="more"></a></p>
+<h4 id="出现原因"><a href="#出现原因" class="headerlink" title="出现原因"></a>出现原因</h4><blockquote>
+<p>手机的宽是720像素的, 而这个canvas是按照小于720像素画出来的, 所以在720像素的手机上显示时, 这个canvas的内容其实是经过拉伸的, 所以会出现模糊和锯齿</p>
+</blockquote>
+<p>参考资料：<br><a href="https://blog.csdn.net/yiifaa/article/details/72812630" target="_blank" rel="noopener">canvas绘制出来的东西有锯齿,怎么解决?</a></p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>原本的canvas同比例放大然后使用scale又把他缩放，设置的行内样式把canvas画布缩放为原本的比列<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 230. 260 是你要设置的画布宽高</span></span><br><span class="line">   myCanvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</span><br><span class="line">   ctx =myCanvas.getContext(<span class="string">'2d'</span>)</span><br><span class="line">   myCanvas.style.width = <span class="number">230</span> + <span class="string">'px'</span></span><br><span class="line">   myCanvas.style.height = <span class="number">260</span> + <span class="string">'px'</span></span><br><span class="line">   myCanvas.height = <span class="number">260</span> * <span class="built_in">window</span>.devicePixelRatio</span><br><span class="line">   myCanvas.width = <span class="number">230</span> * <span class="built_in">window</span>.devicePixelRatio</span><br><span class="line">   ctx.scale(<span class="built_in">window</span>.devicePixelRatio, <span class="built_in">window</span>.devicePixelRatio)</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 数据可视化 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[常兴项目总结]]></title>
+      <url>http://yoursite.com/2019/02/15/%E5%B8%B8%E5%85%B4%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p>航天常兴云平台是一个过渡性项目，该项目中尝试了同一项目多个系统管理，按管理层级划分权限角色，web端设备控制，实时参数分析等，为后期的项目奠定了基础<br><a id="more"></a></p>
+<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
+<li>点击访问<a href="https://fire.htcxcloud.com" target="_blank" rel="noopener">测试环境地址</a> ，以下账号为测试账号<br>&nbsp;账号1： 13261616814<br>&nbsp;账号2：18510786995<br>&nbsp;密码： 123456</li>
+<li>点击访问<a href="https://tower.im/attachments/17eb02b8a31c46287d2e536ff85b56c2/preview?t=0" target="_blank" rel="noopener">测试报告</a></li>
+<li>点击访问<a href="https://tower.im/attachments/ca3a342fd13d9dde7d64e3e0e44c1162/preview?t=0" target="_blank" rel="noopener">功能简介</a><h3 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h3></li>
+<li>大屏展示<br>主要展示设备、项目地理位置分布，各个系统地 设备运行状态，设备接入量统计等，包括告警、故障消息，处理效率。大屏展示主要由图表，曲线，轮播等组件组成，旨在直观的展现出数据的趋势。<br>常兴的大屏UI还原度大概在95%左右，屏幕适配也可以，但是故障消息的组件布局存在问题，当文案内容过多时，布局会比较拥挤。</li>
+</ul>
+<p><img src="/images/cx-home.png" alt="image"></p>
+<ul>
+<li><p>设备控制相关<br>设备相关模块功能比较复杂，主要设计设备列表，设备远程控制，设备故障处理，地理位置分布等。<br><img src="/images/cx-device.jpg" alt="image"></p>
+</li>
+<li><p>用户权限相关<br><img src="/images/cx-user.jpg" alt="image"></p>
+</li>
+<li><p>系统模块相关<br><img src="/images/cx-device.jpg" alt="image"></p>
+</li>
+</ul>
+<h3 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h3><p>不同得用户登录，分配不同得角色，所展示得页面内容也是不同得，主要分为页面级权限和按钮级权限（操作权限）。<br>具体权限相关内容参考<br><a href="https://xxm-cf.github.io/2018/08/31/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%
+9D%83%E9%99%90%E7%9A%84%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">权限控制之权限的设置</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 项目总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[永生APP开发总结]]></title>
       <url>http://yoursite.com/2019/01/15/%E6%B0%B8%E7%94%9FAPP%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>断断续续开发了快一个月，完成了两款APP，简单的总结下，好记性不如烂笔头嘛<br><a id="more"></a></p>
@@ -344,7 +478,7 @@
     
     <entry>
       <title><![CDATA[权限控制之权限的设置]]></title>
-      <url>http://yoursite.com/2018/08/31/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%9D%83%E9%99%90%E7%9A%84%E8%AE%BE%E7%BD%AE(2)/</url>
+      <url>http://yoursite.com/2018/08/31/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%9D%83%E9%99%90%E7%9A%84%E8%AE%BE%E7%BD%AE/</url>
       <content type="html"><![CDATA[<p>权限设置<br><a id="more"></a></p>
 <h4 id="什么是角色？"><a href="#什么是角色？" class="headerlink" title="什么是角色？"></a>什么是角色？</h4><p>角色就是用户的身份，通常包含其权限信息。</p>
 <h4 id="权限的设置？"><a href="#权限的设置？" class="headerlink" title="权限的设置？"></a>权限的设置？</h4><p>权限的设置就是在角色里设置该角色是否具有某一些权限。</p>
@@ -404,7 +538,7 @@
     
     <entry>
       <title><![CDATA[权限控制之权限表]]></title>
-      <url>http://yoursite.com/2018/08/31/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%9D%83%E9%99%90%E8%A1%A8(1)/</url>
+      <url>http://yoursite.com/2018/08/31/%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%E4%B9%8B%E6%9D%83%E9%99%90%E8%A1%A8/</url>
       <content type="html"><![CDATA[<p>权限表的获取<br><a id="more"></a></p>
 <h4 id="一、权限表authorities的获取："><a href="#一、权限表authorities的获取：" class="headerlink" title="一、权限表authorities的获取："></a>一、权限表authorities的获取：</h4><ol>
 <li>登录（/login接口）后可以获取用户的token；</li>
@@ -2422,6 +2556,25 @@ setTimeout(<span class="function"><span class="keyword">function</span>(<span cl
     </entry>
     
     <entry>
+      <title><![CDATA[javascript中的 export和export default的区别]]></title>
+      <url>http://yoursite.com/2018/03/14/javascript%E4%B8%AD%E7%9A%84%20export%E5%92%8Cexport%20default%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      <content type="html"><![CDATA[<p>答疑解惑，export和export default的区别<br><a id="more"></a><br>本文原创地址链接：<a href="http://blog.csdn.net/zhou_xiao_cheng/article/details/52759632，未经博主允许不得转载。" target="_blank" rel="noopener">http://blog.csdn.net/zhou_xiao_cheng/article/details/52759632，未经博主允许不得转载。</a><br> 相信很多人都使用过export、export default、import，然而它们到底有什么区别呢？<br>在JavaScript ES6中，export与export default均可用于导出常量、函数、文件、模块等，你可以在其它文件或模块中通过import+(常量 | 函数 | 文件 | 模块)名的方式，将其导入，以便能够对其进行使用，但在一个文件或模块中，export、import可以有多个，export default仅有一个。<br>具体使用：<br>1、</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对应的导入方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo2.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; str, f &#125; <span class="keyword">from</span> <span class="string">'demo1'</span> <span class="comment">//也可以分开写两次，导入的时候带花括号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 对应的导入方式： --&gt;</span><br><span class="line"><span class="comment">//demo2.js</span></span><br><span class="line"><span class="keyword">import</span> str <span class="keyword">from</span> <span class="string">'demo1'</span> <span class="comment">//导入的时候没有花括号</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[javascript中的call()和apply()方法]]></title>
       <url>http://yoursite.com/2018/03/14/javascript%E4%B8%AD%E7%9A%84call()%E5%92%8Capply()%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>详细介绍js中的call和apply()方法<br><a id="more"></a></p>
@@ -2458,25 +2611,6 @@ setTimeout(<span class="function"><span class="keyword">function</span>(<span cl
         <tags>
             
             <tag> js </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[javascript中的 export和export default的区别]]></title>
-      <url>http://yoursite.com/2018/03/14/javascript%E4%B8%AD%E7%9A%84%20export%E5%92%8Cexport%20default%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-      <content type="html"><![CDATA[<p>答疑解惑，export和export default的区别<br><a id="more"></a><br>本文原创地址链接：<a href="http://blog.csdn.net/zhou_xiao_cheng/article/details/52759632，未经博主允许不得转载。" target="_blank" rel="noopener">http://blog.csdn.net/zhou_xiao_cheng/article/details/52759632，未经博主允许不得转载。</a><br> 相信很多人都使用过export、export default、import，然而它们到底有什么区别呢？<br>在JavaScript ES6中，export与export default均可用于导出常量、函数、文件、模块等，你可以在其它文件或模块中通过import+(常量 | 函数 | 文件 | 模块)名的方式，将其导入，以便能够对其进行使用，但在一个文件或模块中，export、import可以有多个，export default仅有一个。<br>具体使用：<br>1、</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对应的导入方式：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo2.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; str, f &#125; <span class="keyword">from</span> <span class="string">'demo1'</span> <span class="comment">//也可以分开写两次，导入的时候带花括号</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//demo1.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">const</span> str = <span class="string">'hello world'</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 对应的导入方式： --&gt;</span><br><span class="line"><span class="comment">//demo2.js</span></span><br><span class="line"><span class="keyword">import</span> str <span class="keyword">from</span> <span class="string">'demo1'</span> <span class="comment">//导入的时候没有花括号</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> vue </tag>
             
         </tags>
         
