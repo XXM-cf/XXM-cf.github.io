@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4055351684,3400036516&fm=173&s=0550653287B548230E55F9DB0000D0B1&w=640&h=203&img.JPEG">
 <meta property="og:image" content="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=656556240,319451552&fm=173&s=40F63D72490F554F0AE9F1CA0000A0B1&w=640&h=519&img.JPEG">
-<meta property="og:updated_time" content="2019-02-27T10:11:51.228Z">
+<meta property="og:updated_time" content="2019-02-28T07:12:13.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据可视化学习（1） ---canvas">
 <meta name="twitter:description" content="悠哉游哉，开始学习啦，本文是学习canvas过程中的一些记录">
@@ -191,6 +191,7 @@ var _hmt = _hmt || [];
           
                     <p>悠哉游哉，开始学习啦，本文是学习canvas过程中的一些记录<br><a id="more"></a></p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.runoob.com/jsref/dom-obj-canvas.html" target="_blank" rel="noopener">菜鸟教程-canvas</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API" target="_blank" rel="noopener">MDN-canvas API</a></p>
+<h3 id="API简介"><a href="#API简介" class="headerlink" title="API简介"></a>API简介</h3><p>设置canvas的宽高要在元素或在其API，canvas.width || canvas.height，在CSS上设置为得到意想不到的结果，不信试试看哈···<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=<span class="string">'canvas'</span> width=<span class="string">'500'</span> height=<span class="string">'500'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"><span class="comment">//demo.js</span></span><br><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getcontext(<span class="string">'2d'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//路径或图形</span></span><br><span class="line">ctx.fillRect();<span class="comment">//填充矩形</span></span><br><span class="line">ctx.strokeRect();<span class="comment">//勾勒矩形轮廓</span></span><br><span class="line">ctx.arc(x,y,r,anglestart,angleend,clockwise);<span class="comment">//画弧形</span></span><br><span class="line"></span><br><span class="line">ctx.beginPath();<span class="comment">//开始路径</span></span><br><span class="line">ctx.moveTo();<span class="comment">//定义路径起始点</span></span><br><span class="line">ctx.lineTo();<span class="comment">//路径的去向</span></span><br><span class="line">ctx.closePath();<span class="comment">//画完后，关闭路径</span></span><br><span class="line">ctx.fill() || ctx.stroke();<span class="comment">//最后画出由路径构成的图形</span></span><br><span class="line"><span class="comment">// 本质上，所有的多边形都可以由路径画出；</span></span><br><span class="line"></span><br><span class="line">ctx.save();<span class="comment">//保存save以上ctx对象设置的属性值</span></span><br><span class="line">ctx.restore();<span class="comment">//恢复到先前保存在ctx对象上的所有属性值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.requestAnimationFrame(callback) <span class="comment">// 实现动画的重要API</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="基本图形"><a href="#基本图形" class="headerlink" title="基本图形"></a>基本图形</h3><h4 id="长方形"><a href="#长方形" class="headerlink" title="长方形"></a>长方形</h4><ul>
 <li>fillRect(x, y, width, height) : 绘制一个填充的矩形</li>
 <li>strokeRect(x, y, width, height) : 绘制一个矩形的边框</li>
@@ -218,19 +219,19 @@ var _hmt = _hmt || [];
 <tbody>
 <tr>
 <td>fillStyle</td>
-<td>设置或返回用于填充绘画的颜色、渐变或模式  </td>
+<td>设置或返回用于填充绘画的颜色、渐变或模式</td>
 </tr>
 <tr>
 <td>strokeStyle</td>
-<td>设置或返回用于笔触的颜色、渐变或模式。  </td>
+<td>设置或返回用于笔触的颜色、渐变或模式。</td>
 </tr>
 <tr>
 <td>shadowColor</td>
-<td>设置或返回用于阴影的颜色。  </td>
+<td>设置或返回用于阴影的颜色。</td>
 </tr>
 <tr>
 <td>shadowBlur</td>
-<td>设置或返回用于阴影的模糊级别。  </td>
+<td>设置或返回用于阴影的模糊级别。</td>
 </tr>
 <tr>
 <td>shadowOffsetX</td>
@@ -244,7 +245,7 @@ var _hmt = _hmt || [];
 </table>
 <h4 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h4><ul>
 <li>createLinearGradient(x1, y1, x2, y2)<br>createLinearGradient 方法接受 4 个参数，表示渐变的起点 (x1,y1) 与终点 (x2,y2)。</li>
-<li>createRadialGradient(x1, y1, r1, x2, y2, r2)<br>createRadialGradient 方法接受 6 个参数，前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2   </li>
+<li>createRadialGradient(x1, y1, r1, x2, y2, r2)<br>createRadialGradient 方法接受 6 个参数，前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2</li>
 </ul>
 <p>示例代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 线性渐变</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> gradient = ctx.createLinearGradient(<span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>, <span class="number">0</span>)</span><br><span class="line"> gradient.addColorStop(<span class="number">0</span>, <span class="string">"#f06"</span>);</span><br><span class="line"> gradient.addColorStop(<span class="number">1</span>, <span class="string">"#6cf"</span>)</span><br><span class="line"> ctx.fillStyle = gradient       <span class="comment">//设置fillStyle为当前的渐变对象</span></span><br><span class="line"> ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 径向渐变</span></span><br><span class="line"> <span class="keyword">let</span> gradient1 = ctx.createRadialGradient(<span class="number">100</span>, <span class="number">100</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line"> gradient1.addColorStop(<span class="number">0</span>, <span class="string">'#EE82EE'</span>)</span><br><span class="line"> gradient1.addColorStop(<span class="number">1</span>, <span class="string">'#FF00FF'</span>)</span><br><span class="line"> ctx.fillStyle = gradient1</span><br><span class="line"> ctx.arc(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>)</span><br><span class="line"> ctx.fill()</span><br></pre></td></tr></table></figure></p>
 <p>径向渐变原理图<br><img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4055351684,3400036516&amp;fm=173&amp;s=0550653287B548230E55F9DB0000D0B1&amp;w=640&amp;h=203&amp;img.JPEG" alt="image"></p>
@@ -340,6 +341,15 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/2019/03/20/玩玩echarts/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/02/27/解决canvas绘图出现锯齿的问题/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">解决canvas绘图出现锯齿的问题</div>
@@ -384,7 +394,7 @@ var _hmt = _hmt || [];
                           <div id="toc-article" class="toc-article">
                             <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                             <strong class="toc-title">文章目录</strong>
-                            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">1.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本图形"><span class="toc-number">2.</span> <span class="toc-text">基本图形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#长方形"><span class="toc-number">2.1.</span> <span class="toc-text">长方形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#圆形、圆弧"><span class="toc-number">2.2.</span> <span class="toc-text">圆形、圆弧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#绘制路径"><span class="toc-number">2.3.</span> <span class="toc-text">绘制路径</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式"><span class="toc-number">3.</span> <span class="toc-text">样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#颜色、样式、阴影"><span class="toc-number">3.1.</span> <span class="toc-text">颜色、样式、阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#渐变"><span class="toc-number">3.2.</span> <span class="toc-text">渐变</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缩放、旋转、平移"><span class="toc-number">4.</span> <span class="toc-text">缩放、旋转、平移</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">1.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API简介"><span class="toc-number">2.</span> <span class="toc-text">API简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本图形"><span class="toc-number">3.</span> <span class="toc-text">基本图形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#长方形"><span class="toc-number">3.1.</span> <span class="toc-text">长方形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#圆形、圆弧"><span class="toc-number">3.2.</span> <span class="toc-text">圆形、圆弧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#绘制路径"><span class="toc-number">3.3.</span> <span class="toc-text">绘制路径</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式"><span class="toc-number">4.</span> <span class="toc-text">样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#颜色、样式、阴影"><span class="toc-number">4.1.</span> <span class="toc-text">颜色、样式、阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#渐变"><span class="toc-number">4.2.</span> <span class="toc-text">渐变</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缩放、旋转、平移"><span class="toc-number">5.</span> <span class="toc-text">缩放、旋转、平移</span></a></li></ol>
                           </div>
                           <script type="text/javascript">
                             function showToc() {
@@ -1530,10 +1540,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
@@ -1546,11 +1552,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">h5</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thingjs</a>
+                <a href="javascript:void(0)" class="js-tag color3">h5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1558,11 +1564,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thingjs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1586,11 +1600,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数据可视化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vsc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1611,18 +1633,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">项目总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数据可视化</a>
               </li>
             
             <div class="clearfix"></div>

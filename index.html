@@ -161,6 +161,203 @@ var _hmt = _hmt || [];
               <div id="js-content" class="content-ll">
                 
   
+    <article id="post-玩玩echarts" class="article article-type-post  article-index"
+  itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+        <div class="article-entry" itemprop="articleBody">
+          
+                    <hr>
+<p>title: Echart使用记录<br>tag: 数据可视化</p>
+<hr>
+<h3 id="vue项目中使用echarts"><a href="#vue项目中使用echarts" class="headerlink" title="vue项目中使用echarts"></a>vue项目中使用echarts</h3><p>1.安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm intsall echarts --save</span><br></pre></td></tr></table></figure></p>
+<p>2.将echarts挂载在vue原型上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Echarts <span class="keyword">from</span> <span class="string">'echarts'</span></span><br><span class="line"></span><br><span class="line">Vue.prototype.$echarts = Echarts</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3.使用</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line">.container(ref=<span class="string">"chartContainer"</span>) <span class="comment">// dom中定义图表容器</span></span><br><span class="line"></span><br><span class="line">data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        option: &#123;</span><br><span class="line">            .... <span class="comment">// 相关配置</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">mounted () &#123;</span><br><span class="line">    <span class="keyword">this</span>.initChart()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mrthods: &#123;</span><br><span class="line">    initChart () &#123;</span><br><span class="line">        <span class="keyword">let</span> chart = <span class="keyword">this</span>.$echarts.init(<span class="keyword">this</span>.$refs.chartContainer)</span><br><span class="line">        chart.setOption(<span class="keyword">this</span>.option)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><p><strong>1. title</strong>   — 标题<br>包含主标题和副标题， 可以设置样式，位置，阴影，以及给标题添加超链接，配置比较简单。</p>
+<p><strong>2.legend</strong> — 图列<br>图列和文本可以单独设置样式，data中的值应该等于系列中的name值，常规设置位置，阴影，边框样式,<br>也可给图列文本设置tooltip 在legend 文字很多的时候对文字做裁剪并且开启 tooltip<br>图列可以设置分页，具体参数查看配置手册</p>
+<p>注意：</p>
+<ul>
+<li><p>orient 图列布局朝向</p>
+<blockquote>
+<ul>
+<li>horizontal 水平布局</li>
+<li>vertical 垂直布局</li>
+</ul>
+</blockquote>
+</li>
+<li><p>selectedMode 图列选择模式</p>
+<blockquote>
+<ul>
+<li>single 单击选中</li>
+<li>mutiple 双击选中</li>
+<li>false 关闭图列选择</li>
+</ul>
+</blockquote>
+</li>
+<li><p>formatter 格式化图列文本</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用字符串模板，模板变量为图例名称 &#123;name&#125;</span></span><br><span class="line">formatter: <span class="string">'Legend &#123;name&#125;'</span></span><br><span class="line"><span class="comment">// 使用回调函数</span></span><br><span class="line">formatter: <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    ret</span><br></pre></td></tr></table></figure>
+<p><strong>3.grid</strong>  — 绘图网格<br>直角坐标系内绘图网格，单个 grid 内最多可以放置上下两个 X 轴，左右两个 Y 轴<br>可以通过设置left,right,top,bottom,来调整图表在容器中的位置</p>
+<p>4.<strong>xAxis</strong> — X轴相关配置<br>参数名称 | 功能 | 备注<br>—|—|—<br>axisLine | 坐标轴轴线 | 线条样式，剪头偏移,onZero 配置是否显示在y轴0刻度处<br>axisTick | 坐标轴刻度 | intervl设为0,可以强制显示所有标签<br>axisLabel | 轴刻度标签 | 控制标签的样式，可以旋转，格式化<br>splitLine | 横向分割线 | 分割线样式<br>splitArea | 横向分割区域| 可以填充渐变色<br>axisPointer | 指示线| tooltip显示时的指示线<br>data | 类目数据 | 可以单独设置某个数据的样式</p>
+<ol>
+<li><strong>yAxis</strong> – y轴相关配置<br>坐标轴名称可以设置样式，位置，旋转等<br>可配置最大最小值</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>功能</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inverse</td>
+<td>反向坐标轴</td>
+<td>线条样式，剪头偏移,onZero 配置是否显示在y轴0刻度处</td>
+</tr>
+<tr>
+<td>axisTick</td>
+<td>坐标轴刻度</td>
+<td>intervl设为0,可以强制显示所有标签</td>
+</tr>
+<tr>
+<td>axisLabel</td>
+<td>轴刻度标签</td>
+<td>控制标签的样式，可以旋转，格式化</td>
+</tr>
+<tr>
+<td>splitLine</td>
+<td>横向分割线</td>
+<td>分割线样式</td>
+</tr>
+<tr>
+<td>splitArea</td>
+<td>横向分割区域</td>
+<td>可以填充渐变色</td>
+</tr>
+<tr>
+<td>axisPointer</td>
+<td>指示线</td>
+<td>tooltip显示时的指示线</td>
+</tr>
+<tr>
+<td>data</td>
+<td>类目数据</td>
+<td>可以单独设置某个数据的样式（type: ‘category’）中有效。</td>
+</tr>
+<tr>
+<td>axisPointer</td>
+<td>引导线</td>
+<td>配置引导线样式</td>
+</tr>
+</tbody>
+</table>
+<p>6.<strong>dataZoom</strong> –区域缩放<br><a href="https://note.youdao.com/https://www.echartsjs.com/gallery/editor.html?c=doc-example/scatter-dataZoom-all" target="_blank" rel="noopener">示例链接</a><br>type可以设置为以下两种<br>参数名称 | 功能<br>—|—<br>inside | 内置于坐标系<br>slider | 出现单独的滑条</p>
+<p>7.<strong>tooltip</strong> – 提示框<br>可以配置出发方式（click,mouseover）,显示、关闭延时</p>
+<blockquote>
+<p>可以设置在全局，即 tooltip<br>可以设置在坐标系中，即 grid.tooltip、polar.tooltip、single.tooltip<br>可以设置在系列中，即 series.tooltip<br>可以设置在系列的每个数据项中，即 series.data.tooltip</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>功能</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>trigger</td>
+<td>触发方式，</td>
+<td>item: 饼图，散点图等，axis: 主要柱状图中</td>
+</tr>
+<tr>
+<td>showContent</td>
+<td>是否显示浮层，</td>
+<td>默认显示</td>
+</tr>
+<tr>
+<td>alwaysShowContent</td>
+<td>是否永远显示浮层，</td>
+<td>默认fasle</td>
+</tr>
+<tr>
+<td>formatter</td>
+<td>格式化</td>
+<td>自定义提示内容，支持回调函数和字符串模板</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><p><strong>bush</strong> – 区域选择组件<br>用户可以定义一块区域，在图表中选择，配合tootip和toolbox试用<br><a href="https://echarts.baidu.com/option.html#brush" target="_blank" rel="noopener">官网示例</a></p>
+</li>
+<li><p><strong>color，backgroundColor</strong><br>调色盘颜色列表</p>
+</li>
+</ol>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><p><strong>1. 柱状图如何配置为水平坐标</strong></p>
+<ul>
+<li>将轴配置为类目轴，x轴配置为数值轴,并将y轴的data移到x轴配置中,简言之，xy轴互换<blockquote>
+<p>value:数值轴，适用于连续数据。<br>category: 类目轴，适用于离散的类目数据，<br><img src="./charts-1" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">option = &#123;</span><br><span class="line">    title: &#123;</span><br><span class="line">        text: &apos;配置横向轴&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">    xAxis: &#123;</span><br><span class="line">        type: &apos;value&apos;,</span><br><span class="line">        data: [&apos;巴西&apos;,&apos;印尼&apos;,&apos;美国&apos;,&apos;印度&apos;,&apos;中国&apos;,&apos;世界人口(万)&apos;]</span><br><span class="line">    &#125;,</span><br><span class="line">    yAxis: &#123;</span><br><span class="line">        type: &apos;category&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    series: [</span><br><span class="line">        &#123;</span><br><span class="line">            name: &apos;2011年&apos;,</span><br><span class="line">            type: &apos;bar&apos;,</span><br><span class="line">            data: [18203, 23489, 29034, 104970, 131744, 630230]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li><p><strong>提示框内可以进行操作吗？</strong><br>配置tootip中的enterable为true，鼠标即可进图提示框区域  </p>
+</li>
+<li><p><strong>同一组数据可以切换显示柱状图和折线图吗？</strong><br>可以试用内置的工具箱实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">toolbox: &#123;</span><br><span class="line">    show: true,</span><br><span class="line">    feature: &#123;</span><br><span class="line">        dataView: &#123;readOnly: false&#125;,</span><br><span class="line">        magicType: &#123;type: [&apos;bar&apos;, &apos;line&apos;]&#125; // 切换显示</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">4. **如何设置渐变色**  </span><br><span class="line">前4个参数依次对应右/下/左/上四个方位. 而0 0 0 1则代表渐变色从正上方开始.  </span><br><span class="line">offset的范围是0 ~ 1, 用于表示位置，  </span><br><span class="line">背景颜色也可以用这个方法</span><br></pre></td></tr></table></figure>
+<p>itemStyle: {<br> color: new echarts.graphic.LinearGradient(<br>   0, 0, 0, 1,<br>   [</p>
+<pre><code>{ offset: 0, color: &apos;#2378f7&apos; },
+{ offset: 0.7, color: &apos;#2378f7&apos; },
+{ offset: 1, color: &apos;#83bff6&apos; }
+</code></pre><p>   ]<br> )<br>}<br><code>`</code></p>
+</li>
+<li><strong>坐标轴显示不全怎么办？</strong></li>
+</ol>
+<p>可以用 interval 控制每隔多少显示标签，设为 0 则显示所有标签。<br>或者，可以设置 axisLabel.rotate，将标签旋转一定角度。</p>
+
+                      
+
+                        
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+            
+
+              
+                <p class="article-more-link">
+                  <a class="article-more-a" href="/2019/03/20/玩玩echarts/">
+                    展开全文 >></a>
+                </p>
+                
+
+                  
+                        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+      
+
+            
+                        <!-- 目录内容 -->
+                        
+                            <!-- 目录内容结束 -->
+                            
+
+                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+                                <script>
+                                  hljs.initHighlightingOnLoad();
+
+                                </script>
+
+      
     <article id="post-学习canvas" class="article article-type-post  article-index"
   itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -800,80 +997,6 @@ var _hmt = _hmt || [];
               
                 <p class="article-more-link">
                   <a class="article-more-a" href="/2018/12/18/vue项目中的图片预览/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-
-      
-
-            
-                        <!-- 目录内容 -->
-                        
-                            <!-- 目录内容结束 -->
-                            
-
-                                <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-                                <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-                                <script>
-                                  hljs.initHighlightingOnLoad();
-
-                                </script>
-
-      
-    <article id="post-导出列表 (1)" class="article article-type-post  article-index"
-  itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/导出列表 (1)/">web端常用的导出列表</a>
-    </h1>
-  
-
-          
-            <a href="/2018/12/07/导出列表 (1)/" class="archive-article-date">
-  	<time datetime="2018-12-07T09:26:17.659Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-            <p>需要后端接口配合，实现导出报表功能<br>
-              
-                  
-
-                        
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/12/07/导出列表 (1)/">
                     展开全文 >></a>
                 </p>
                 
@@ -2026,10 +2149,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
@@ -2042,11 +2161,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">h5</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thingjs</a>
+                <a href="javascript:void(0)" class="js-tag color3">h5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2054,11 +2173,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thingjs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2082,11 +2209,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">数据可视化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vsc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2107,18 +2242,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">项目总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">数据可视化</a>
               </li>
             
             <div class="clearfix"></div>
